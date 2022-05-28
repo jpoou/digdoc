@@ -13,7 +13,7 @@
                         ¿Olvidaste tu contraseña? Dejanos ayudarte
                     </p>
                     <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                        <input class="input100" type="text" name="username" placeholder="Ingrese su dirección de correo electrónico de registro">
+                        <input class="input100" type="email" name="username" placeholder="Ingrese su dirección de correo electrónico">
                         <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     </div>
                     <div class="container-login100-form-btn">
