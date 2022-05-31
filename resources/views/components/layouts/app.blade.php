@@ -22,9 +22,31 @@
     <link href="{{ asset('/assets/css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/assets/css/theme-color.css') }}" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-color logo-dark">
 
-{{ $slot }}
+    <div class="page-wrapper">
+        {{ $slot }}
+    </div>
 
+    <!-- start js include path -->
+    <script src="{{ asset('/assets/plugins/jquery/jquery.min.js') }}" ></script>
+    <script src="{{ asset('/assets/plugins/popper/popper.min.js') }}" ></script>
+    <script src="{{ asset('/assets/plugins/jquery-blockui/jquery.blockui.min.js') }}" ></script>
+    <script src="{{ asset('/assets/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+    <!-- bootstrap -->
+    <script src="{{ asset('/assets/plugins/bootstrap/js/bootstrap.min.js') }}" ></script>
+    <!-- counterup -->
+    <script src="{{ asset('/assets/plugins/counterup/jquery.waypoints.min.js') }}" ></script>
+    <script src="{{ asset('/assets/plugins/counterup/jquery.counterup.min.js') }}" ></script>
+    <!-- Common js-->
+    <script src="{{ asset('/assets/js/app.js') }}" ></script>
+    <script src="{{ asset('/assets/js/layout.js') }}" ></script>
+    <script src="{{ asset('/assets/js/theme-color.js') }}" ></script>
+    <!-- material -->
+    <script src="{{ asset('/assets/plugins/material/material.min.js') }}"></script>
+    <!-- morris chart -->
+    <script src="{{ asset('/assets/plugins/morris/morris.min.js') }}" ></script>
+    <script src="{{ asset('/assets/plugins/morris/raphael-min.js') }}" ></script>
+    <!-- end js include path -->
 </body>
 </html>
