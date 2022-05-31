@@ -16,6 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::view('login', 'components.auth.login')->name('login');
-Route::view('reset', 'components.auth.reset')->name('reset');
