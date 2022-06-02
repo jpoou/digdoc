@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('home', 'components.home');
+Route::view('home', 'components.home')->middleware('auth');
+Route::view('branches', 'modules.branches.index')->middleware('auth');

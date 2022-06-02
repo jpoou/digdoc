@@ -24,11 +24,13 @@
 </head>
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-color logo-dark">
 
-<div class="page-wrapper">
+    <div class="page-wrapper">
+
         <x-partials.header/>
 
         <!-- start page container -->
         <div class="page-container">
+
             <x-partials.sidebar/>
 
             <!-- start page content -->
@@ -38,10 +40,12 @@
             <!-- end page content -->
 
             <x-partials.setting/>
+
         </div>
         <!-- end page container -->
 
         <x-partials.footer/>
+
     </div>
 
     <!-- start js include path -->
