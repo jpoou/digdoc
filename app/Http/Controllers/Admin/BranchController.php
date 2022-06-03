@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Branch;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BranchRequest;
-use App\Models\Branch;
-use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
@@ -25,5 +24,11 @@ class BranchController extends Controller
     {
         Branch::create($request->validated());
         return redirect()->route('branches.index')->with('message', 'Creado exitosamente');
+    }
+
+    public function destroy(Branch $branch)
+    {
+        $branch->delete();
+        return redirect()->route('branches.index')->with('message', 'Eliminado exitosamente');
     }
 }

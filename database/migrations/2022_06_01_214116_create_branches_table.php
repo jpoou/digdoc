@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('phone');
             $table->string('schedule');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

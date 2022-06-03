@@ -88,7 +88,7 @@
                                                                 <a href="#" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
-                                                                <form action="#" method="POST" style="display: inline">
+                                                                <form action="{{ route('branches.destroy', $branch) }}" method="POST" style="display: inline">
                                                                     @csrf @method('DELETE')
                                                                     <button class="btn btn-tbl-delete btn-xs" onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">
                                                                         <i class="fa fa-trash-o "></i>
