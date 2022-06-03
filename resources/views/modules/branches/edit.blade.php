@@ -4,7 +4,7 @@
             <div class="page-bar">
                 <div class="page-title-breadcrumb">
                     <div class=" pull-left">
-                        <div class="page-title">Crear hospitales</div>
+                        <div class="page-title">Editar hospitales</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/">Inicio</a>&nbsp;<i
@@ -20,7 +20,7 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="card card-box">
                         <div class="card-head">
-                            <header>Información basica</header>
+                            <header>Información básica</header>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('branches.store') }}" class="form-horizontal" method="POST">
