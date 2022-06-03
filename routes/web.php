@@ -18,4 +18,3 @@ Route::get('/', function () {
 });
 
 Route::view('home', 'components.home')->middleware('auth');
-Route::view('branches', 'modules.branches.index')->middleware('auth');

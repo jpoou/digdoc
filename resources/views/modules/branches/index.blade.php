@@ -29,7 +29,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <div class="btn-group">
-                                        <a class="btn btn-info" href="#">
+                                        <a class="btn btn-info" href="{{ route('branches.create') }}">
                                             Agregar <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
@@ -53,10 +53,22 @@
                                                             aria-label="Name: activate to sort column descending">
                                                             Nombre
                                                         </th>
+                                                        <th class="sorting_asc" tabindex="0"
+                                                            aria-controls="saveStage" rowspan="1" colspan="1"
+                                                            style="width: 262.375px;" aria-sort="ascending"
+                                                            aria-label="Name: activate to sort column descending">
+                                                            Teléfono
+                                                        </th>
+                                                        <th class="sorting_asc" tabindex="0"
+                                                            aria-controls="saveStage" rowspan="1" colspan="1"
+                                                            style="width: 262.375px;" aria-sort="ascending"
+                                                            aria-label="Name: activate to sort column descending">
+                                                            Tipo
+                                                        </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 407.984px;"
                                                             aria-label="Position: activate to sort column ascending">
-                                                            Comentarios
+                                                            Dirección
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 156.734px;"
@@ -66,10 +78,12 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @foreach([] as $hospital)
+                                                    @foreach($branches as $branch)
                                                         <tr role="row" class="odd">
-                                                            <td class="sorting_1">{{ $hospital->name }}</td>
-                                                            <td>{{ $hospital->comments }}</td>
+                                                            <td class="sorting_1">{{ $branch->name }}</td>
+                                                            <td>{{ $branch->phone }}</td>
+                                                            <td>{{ $branch->type }}</td>
+                                                            <td>{{ $branch->address }}</td>
                                                             <td class="center">
                                                                 <a href="#" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
