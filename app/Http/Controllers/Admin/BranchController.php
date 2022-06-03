@@ -33,6 +33,12 @@ class BranchController extends Controller
         ]);
     }
 
+    public function update(BranchRequest $request, Branch $branch)
+    {
+        $branch->update($request->validated());
+        return redirect()->route('branches.index')->with('message', 'Creado exitosamente');
+    }
+
     public function destroy(Branch $branch)
     {
         $branch->delete();

@@ -17,7 +17,8 @@
                             <header>Información básica</header>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('branches.store') }}" class="form-horizontal" method="POST">
+                            <form action="{{ route('branches.update', $branch) }}" class="form-horizontal" method="POST">
+                                @method('PUT')
                                 @include('modules.branches.form', [ 'branch' => $branch ])
                             </form>
                         </div>
