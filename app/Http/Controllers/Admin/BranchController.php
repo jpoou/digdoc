@@ -26,6 +26,13 @@ class BranchController extends Controller
         return redirect()->route('branches.index')->with('message', 'Creado exitosamente');
     }
 
+    public function edit(Branch $branch)
+    {
+        return view('modules.branches.edit', [
+            'branch' => $branch
+        ]);
+    }
+
     public function destroy(Branch $branch)
     {
         $branch->delete();

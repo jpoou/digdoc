@@ -71,6 +71,11 @@
                                                             Dirección
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 407.984px;"
+                                                            aria-label="Position: activate to sort column ascending">
+                                                            Horarios
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 156.734px;"
                                                             aria-label="Salary: activate to sort column ascending">
                                                             Acciones
@@ -84,8 +89,9 @@
                                                             <td>{{ $branch->phone }}</td>
                                                             <td>{{ $branch->type }}</td>
                                                             <td>{{ $branch->address }}</td>
+                                                            <td>{{ $branch->schedule }}</td>
                                                             <td class="center">
-                                                                <a href="#" class="btn btn-tbl-edit btn-xs">
+                                                                <a href="{{ route('branches.edit', $branch) }}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
                                                                 <form action="{{ route('branches.destroy', $branch) }}" method="POST" style="display: inline">
