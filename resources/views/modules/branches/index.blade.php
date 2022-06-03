@@ -1,19 +1,11 @@
 <x-layouts.app title="Sucursales">
     <div class="page-content-wrapper">
         <div class="page-content" style="min-height:613px">
-            <div class="page-bar">
-                <div class="page-title-breadcrumb">
-                    <div class=" pull-left">
-                        <div class="page-title">Hospitales</div>
-                    </div>
-                    <ol class="breadcrumb page-breadcrumb pull-right">
-                        <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="index.html">Inicio</a>&nbsp;<i
-                                    class="fa fa-angle-right"></i>
-                        </li>
-                        <li class="active">Lista de hospitales</li>
-                    </ol>
-                </div>
-            </div>
+
+            <x-pages.page-bar title="Hospitales">
+                <li class="active">Lista de hospitales</li>
+            </x-pages.page-bar>
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-box">
