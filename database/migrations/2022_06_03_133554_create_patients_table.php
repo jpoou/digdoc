@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->string('phone');
             $table->string('email')->nullable();
             $table->enum('gender', [ 'male', 'feminine', 'other' ]);
+            $table->string('identifier')->nullable();
             $table->string('blood_type', 15)->nullable();
             $table->date('birth_at')->nullable();
             $table->timestamps();

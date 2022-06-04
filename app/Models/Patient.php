@@ -18,6 +18,7 @@ class Patient extends Model
         'email',
         'gender',
         'blood_type',
-        'birth_at'
+        'birth_at',
+        'identifier'
     ];
 }
