@@ -54,6 +54,25 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i class="material-icons">home</i>
+                        <span class="title">Pacientes</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item  ">
+                            <a href="{{ route('patients.index') }}" class="nav-link ">
+                                <span class="title">Pacientes</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="{{ route('patients.create') }}" class="nav-link ">
+                                <span class="title">Crear paciente</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
