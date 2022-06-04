@@ -15,6 +15,7 @@ class Sign extends Model
      * @var string[]
      */
     protected $fillable = [
+        'code',
         'name',
         'unit',
         'description'
