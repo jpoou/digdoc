@@ -58,7 +58,7 @@
             <span class="required" aria-required="true"> * </span>
         </label>
         <div class="col-md-5">
-            <select name="gender" id="gender" class="form-control">
+            <select name="gender" id="gender" class="form-control input-height">
                 <option value="male">Masculino</option>
                 <option value="feminine">Femenina</option>
                 <option value="other">Otro</option>
@@ -70,14 +70,21 @@
             <span class="required" aria-required="true"> * </span>
         </label>
         <div class="col-md-5">
-            <input type="text" name="blood_type" id="blood_type" value="{{ old('blood_type', $patient) }}" class="form-control input-height" required>
-            @error('email')
-            <span class="help-block text-danger"> {{ $message }} </span>
-            @enderror
+            <select class="form-control input-height" id="blood_type" name="blood_type" aria-invalid="false">
+                <option value="">Select...</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">
-        <label class="control-label col-md-3" for="birth_at">Tipo de sangre
+        <label class="control-label col-md-3" for="birth_at">Fecha de nacimiento
             <span class="required" aria-required="true"> * </span>
         </label>
         <div class="col-md-5">
