@@ -10,7 +10,7 @@ use Illuminate\Database\Migrations\Migration;
 return new class extends Migration {
     public function up()
     {
-        Schema::create('quotes', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Patient::class);
             $table->foreignIdFor(Branch::class);
@@ -23,6 +23,6 @@ return new class extends Migration {
 
     public function down()
     {
-        Schema::dropIfExists('quotes');
+        Schema::dropIfExists('appointments');
     }
 };

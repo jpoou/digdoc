@@ -99,6 +99,9 @@
                                                                 <a href="{{ route('patients.edit', $patient) }}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
+                                                                <a href="{{ route('patient.appointment.create', $patient) }}" class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </a>
                                                                 <form action="{{ route('patients.destroy', $patient) }}" method="POST" style="display: inline">
                                                                     @csrf @method('DELETE')
                                                                     <button class="btn btn-tbl-delete btn-xs" onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">
