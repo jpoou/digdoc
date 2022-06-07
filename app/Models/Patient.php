@@ -29,8 +29,8 @@ class Patient extends Model
         'birth_at' => 'date'
     ];
 
-    public function appointment()
+    public function appointments()
     {
-        return $this->hasOne(Appointment::class);
+        return $this->hasMany(Appointment::class);
     }
 }

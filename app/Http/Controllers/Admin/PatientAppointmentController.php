@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AppointmentRequest;
 use App\Models\Branch;
 use App\Models\Patient;
 use App\Models\Staff;
@@ -19,17 +20,12 @@ class PatientAppointmentController extends Controller
         ]);
     }
 
-    public function store(Patient $patient, Request $request)
+    public function store(Patient $patient, AppointmentRequest $request)
     {
-        $patient->appointment()->create([
-            'branch_id' => $request->branch_id,
-            'doctor_id' => $request->doctor_id,
-            'creator_id' => auth()->id(),
-            'appointment_at' => $request->appointment_at,
-            'from' => $request->from,
-            'to' => $request->to,
-            'reason' => $request->reason
-        ]);
+        $valid = $request->validated();
+        $valid['creator_id'] = auth()->id();
+
+        $patient->appointments()->create($valid);
 
         return redirect()->route('patients.index')->with('Cita creada exitosamente');
     }
