@@ -18,6 +18,10 @@ return new class extends Migration {
             $table->foreignIdFor(User::class, 'creator_id');
             $table->foreignIdFor(Staff::class, 'doctor_id')->nullable();
             $table->enum('status', ['open', 'progress', 'complete'])->default('open');
+            $table->date('appointment_at')->nullable();
+            $table->time('from');
+            $table->time('to');
+            $table->text('reason');
             $table->timestamps();
             $table->softDeletes();
         });

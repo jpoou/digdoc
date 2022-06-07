@@ -28,4 +28,9 @@ class Patient extends Model
     protected $casts = [
         'birth_at' => 'date'
     ];
+
+    public function appointment()
+    {
+        return $this->hasOne(Appointment::class);
+    }
 }
