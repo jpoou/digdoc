@@ -22,4 +22,19 @@ class Appointment extends Model
         'reason',
         'status'
     ];
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+    public function staff()
+    {
+        return $this->belongsTo(Staff::class, 'doctor_id');
+    }
 }

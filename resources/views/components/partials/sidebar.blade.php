@@ -67,6 +67,11 @@
                             </a>
                         </li>
                         <li class="nav-item  ">
+                            <a href="{{ route('appointments.index') }}" class="nav-link ">
+                                <span class="title">Citas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
                             <a href="{{ route('patients.create') }}" class="nav-link ">
                                 <span class="title">Crear paciente</span>
                             </a>
