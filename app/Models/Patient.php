@@ -24,4 +24,8 @@ class Patient extends Model
         'birth_at',
         'identifier'
     ];
+
+    protected $casts = [
+        'birth_at' => 'date'
+    ];
 }

@@ -94,6 +94,16 @@
             @enderror
         </div>
     </div>
+    <div class="form-group row">
+        <label class="control-label col-md-3" for="address">Dirección
+        </label>
+        <div class="col-md-5">
+            <textarea id="address" name="address" placeholder="456, Pragri flat, varacha road, Surat" class="form-control-textarea" rows="5"></textarea>
+            @error('address')
+            <span class="help-block text-danger"> {{ $message }} </span>
+            @enderror
+        </div>
+    </div>
     <div class="form-actions">
         <div class="row">
             <div class="offset-md-3 col-md-9">

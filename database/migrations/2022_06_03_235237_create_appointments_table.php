@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Staff;
 use App\Models\User;
 use App\Models\Branch;
 use App\Models\Patient;
@@ -15,7 +16,8 @@ return new class extends Migration {
             $table->foreignIdFor(Patient::class);
             $table->foreignIdFor(Branch::class);
             $table->foreignIdFor(User::class, 'creator_id');
-            $table->enum('status', ['open', 'progress', 'complete']);
+            $table->foreignIdFor(Staff::class, 'doctor_id')->nullable();
+            $table->enum('status', ['open', 'progress', 'complete'])->default('open');
             $table->timestamps();
             $table->softDeletes();
         });
