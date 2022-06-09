@@ -86,6 +86,9 @@
                                                                 <a href="{{ route('appointments.edit', $appointment) }}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
+                                                                <a href="{{ route('appointment.signs.create', $appointment) }}" class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                </a>
                                                                 <form action="{{ route('appointments.destroy', $appointment) }}" method="POST" style="display: inline">
                                                                     @csrf @method('DELETE')
                                                                     <button class="btn btn-tbl-delete btn-xs" onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">

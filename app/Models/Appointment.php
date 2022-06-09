@@ -37,4 +37,9 @@ class Appointment extends Model
     {
         return $this->belongsTo(Staff::class, 'doctor_id');
     }
+
+    public function signs()
+    {
+
+    }
 }
