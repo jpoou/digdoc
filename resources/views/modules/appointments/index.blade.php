@@ -87,7 +87,7 @@
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
                                                                 <a href="{{ route('appointment.signs.create', $appointment) }}" class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
+                                                                    <i class="fa fa-user-circle"></i>
                                                                 </a>
                                                                 <form action="{{ route('appointments.destroy', $appointment) }}" method="POST" style="display: inline">
                                                                     @csrf @method('DELETE')

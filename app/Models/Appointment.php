@@ -40,6 +40,9 @@ class Appointment extends Model
 
     public function signs()
     {
-
+        return $this->belongsToMany(Sign::class)
+            ->using(AppointmentSign::class)
+            ->withTimestamps()
+            ->withPivot('value');
     }
 }

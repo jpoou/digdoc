@@ -12,6 +12,8 @@ return new class extends Migration {
             $table->string('code', 4);
             $table->string('name');
             $table->string('unit', 15);
+            $table->enum('type', ['number', 'text']);
+            $table->boolean('required')->default(true);
             $table->string('description');
             $table->timestamps();
             $table->softDeletes();

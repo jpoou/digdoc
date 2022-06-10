@@ -20,4 +20,12 @@ class Sign extends Model
         'unit',
         'description'
     ];
+
+    public function appointments()
+    {
+        return $this->belongsToMany(Appointment::class)
+            ->using(AppointmentSign::class)
+            ->withTimestamps()
+            ->withPivot('value');
+    }
 }

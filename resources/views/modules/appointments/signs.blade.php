@@ -20,7 +20,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="card card-box">
                             <div class="card-head">
-                                <header>Reservar una cita</header>
+                                <header>Registrar signos vitales</header>
                             </div>
                             <div class="card-body" id="bar-parent">
                                 <form action="{{ route('appointment.signs.store', $appointment) }}" class="form-horizontal" novalidate="novalidate" method="post">
@@ -28,13 +28,13 @@
                                     <div class="form-body">
                                         @foreach($signs as $sign)
                                             <div class="form-group row">
-                                                <label class="control-label col-md-3" for="appointment_at">{{ $sign->name }}
+                                                <label class="control-label col-md-3" for="{{ $sign->id }}">{{ $sign->name }}
                                                     <span class="required" aria-required="true"> * </span>
+                                                    <p>{{ $sign->description }}</p>
                                                 </label>
                                                 <div class="col-md-5">
                                                     <div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                                        <input class="form-control input-height" size="16" placeholder="Fecha de cita" type="date" id="appointment_at" name="appointment_at" value="{{ old('appointment_at') }}">
-                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input class="form-control input-height" size="16" placeholder="{{ $sign->unit }}" type="{{ $sign->type }}" id="{{ $sign->id }}" name="sing[{{ $sign->id }}]">
                                                     </div>
                                                     @error('value')
                                                     <div class="alert alert-danger">{{ $message }}</div>
