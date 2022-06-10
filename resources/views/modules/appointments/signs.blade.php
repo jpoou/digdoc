@@ -34,7 +34,10 @@
                                                 </label>
                                                 <div class="col-md-5">
                                                     <div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                                        <input class="form-control input-height" size="16" placeholder="{{ $sign->unit }}" type="{{ $sign->type }}" id="{{ $sign->id }}" name="sing[{{ $sign->id }}]">
+                                                        <input class="form-control input-height" size="16" placeholder="{{ $sign->unit }}"
+                                                               type="{{ $sign->type }}" id="{{ $sign->id }}" name="sing[{{ $sign->id }}]"
+                                                               value="{{ $appointment->signs->where('id', $sign->id)->last()->pivot->value }}"
+                                                        >
                                                     </div>
                                                     @error('value')
                                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -47,7 +50,7 @@
                                         <div class="row">
                                             <div class="offset-md-3 col-md-9">
                                                 <button type="submit" class="btn btn-info">Enviar</button>
-                                                <a href="{{ route('patients.index') }}" class="btn btn-default">Cancelar</a>
+                                                <a href="{{ route('appointments.index') }}" class="btn btn-default">Cancelar</a>
                                             </div>
                                         </div>
                                     </div>
