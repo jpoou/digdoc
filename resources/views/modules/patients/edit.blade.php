@@ -17,10 +17,10 @@
                             <header>Información básica</header>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('patients.update', $patient) }}" class="form-horizontal" method="POST">
+                            {{--<form action="{{ route('patients.update', $patient) }}" class="form-horizontal" method="POST">
                                 @method('PUT')
                                 @include('modules.patients.form', [ 'patient' => $patient ])
-                            </form>
+                            </form>--}}
                         </div>
                     </div>
                 </div>
