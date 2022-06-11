@@ -36,7 +36,7 @@
                                                     <div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                                                         <input class="form-control input-height" size="16" placeholder="{{ $sign->unit }}"
                                                                type="{{ $sign->type }}" id="{{ $sign->id }}" name="sing[{{ $sign->id }}]"
-                                                               value="{{ $appointment->signs->where('id', $sign->id)->last()->pivot->value }}"
+                                                               value="{{ optional($appointment->signs->where('id', $sign->id)->last())->pivot->value }}"
                                                         >
                                                     </div>
                                                     @error('value')
