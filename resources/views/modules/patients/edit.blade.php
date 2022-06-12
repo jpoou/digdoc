@@ -2,12 +2,12 @@
     <div class="page-content-wrapper">
         <div class="page-content" style="min-height:613px">
 
-            <x-pages.page-bar title="Editar paciente">
+            <x-pages.page-bar title="Editar cita">
                 <li>
-                    <a class="parent-item" href="{{ route('patients.index') }}">Pacientes</a>&nbsp;
+                    <a class="parent-item" href="{{ route('appointments.index') }}">Citas</a>&nbsp;
                     <i class="fa fa-angle-right"></i>
                 </li>
-                <li class="active">Editar paciente</li>
+                <li class="active">Editar cita</li>
             </x-pages.page-bar>
 
             <div class="row">

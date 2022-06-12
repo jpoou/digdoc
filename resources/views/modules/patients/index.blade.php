@@ -49,12 +49,6 @@
                                                             aria-controls="saveStage" rowspan="1" colspan="1"
                                                             style="width: 262.375px;" aria-sort="ascending"
                                                             aria-label="Name: activate to sort column descending">
-                                                            Apellidos
-                                                        </th>
-                                                        <th class="sorting_asc" tabindex="0"
-                                                            aria-controls="saveStage" rowspan="1" colspan="1"
-                                                            style="width: 262.375px;" aria-sort="ascending"
-                                                            aria-label="Name: activate to sort column descending">
                                                             Teléfono
                                                         </th>
                                                         <th class="sorting_asc" tabindex="0"
@@ -79,6 +73,11 @@
                                                             Fecha nacimiento
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 407.984px;"
+                                                            aria-label="Position: activate to sort column ascending">
+                                                            Citas
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 156.734px;"
                                                             aria-label="Salary: activate to sort column ascending">
                                                             Acciones
@@ -88,13 +87,13 @@
                                                     <tbody>
                                                     @foreach($patients as $patient)
                                                         <tr role="row" class="odd">
-                                                            <td class="sorting_1">{{ $patient->name }}</td>
-                                                            <td>{{ $patient->surname }}</td>
+                                                            <td class="sorting_1">{{ $patient->full_name }}</td>
                                                             <td>{{ $patient->phone }}</td>
                                                             <td>{{ $patient->email }}</td>
                                                             <td>{{ $patient->gender }}</td>
                                                             <td>{{ $patient->blood_type }}</td>
-                                                            <td>{{ $patient->birth_at }}</td>
+                                                            <td>{{ $patient->birth_at->format('d-m-Y') }}</td>
+                                                            <td>{{ $patient->appointments_count }}</td>
                                                             <td class="center">
                                                                 <a href="{{ route('patients.edit', $patient) }}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
