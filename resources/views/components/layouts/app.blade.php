@@ -23,6 +23,10 @@
     <link href="{{ asset('/assets/css/theme-color.css') }}" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="{{ asset('/assets/plugins/summernote/summernote.css') }}">
+
+    <!--select2-->
+    <link href="{{ asset('/assets/plugins/select2/css/select2.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-color logo-dark">
 
@@ -73,5 +77,9 @@
 
     <script src="{{ asset('assets/plugins/summernote/summernote.min.js') }}" ></script>
     <script src="{{ asset('/assets/js/pages/summernote/summernote-data.js') }}" ></script>
+
+    <!--select2-->
+    <script src="{{ asset('/assets/plugins/select2/js/select2.js') }}" ></script>
+    <script src="{{ asset('/assets/js/pages/select2/select2-init.js') }}" ></script>
 </body>
 </html>

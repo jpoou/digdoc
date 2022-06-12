@@ -31,7 +31,7 @@
                                                 <label for="type">Tipo:</label>
                                                 <select class="form-control input-height" id="type" name="type" aria-invalid="false" required>
                                                     @foreach(App\Enums\AttachmentType::cases() as $type)
-                                                        <option value="{{ $type->value }}">{{ $type->text() }}</option>
+                                                        <option value="{{ $type->value }}" @selected(old('type') == $type->value)>{{ $type->text() }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('type')
@@ -42,9 +42,11 @@
                                                 <label for="attachment_id" data-toggle="tooltip" data-placement="right"
                                                        title="Diagnostico: Adjuntar indicador, Receta: Adj. Medicamento, Estudio: Adj. Examen/Imagenes"
                                                 >Adjunto:</label>
-                                                <select class="form-control input-height" id="attachment_id" name="attachment_id" aria-invalid="false">
+                                                <select class="form-control input-height select2" id="attachment_id" name="attachment_id" aria-invalid="false">
+                                                    <option value="">Seleccione una opción</option>
                                                     @foreach($attachments as $attachment)
-                                                        <option value="{{ $attachment->id }}">{{ $attachment->name }}</option>
+                                                        <option value="{{ $attachment->id }}"
+                                                                @selected(old('attachment_id') == $attachment->id)>{{ $attachment->name }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('attachment_id')
@@ -68,7 +70,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <label class="my-3" for="indications">Indicaciones / Comentarios / Observaciones: </label>
-                                                <textarea class="form-control" name="indications" id="indications" rows="10"></textarea>
+                                                <textarea class="form-control" name="indications" id="indications" rows="10" required></textarea>
                                                 @error('indications')
                                                 <span class="help-block text-danger"> {{ $message }} </span>
                                                 @enderror
@@ -97,4 +99,11 @@
         </div>
     </div>
 
+    <script>
+        $('.select2').select2({
+            placeholder: "Select",
+            width: 'auto',
+            allowClear: true
+        });
+    </script>
 </x-layouts.app>
