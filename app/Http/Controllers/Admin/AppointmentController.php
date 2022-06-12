@@ -11,7 +11,7 @@ class AppointmentController extends Controller
     public function index()
     {
         return view('modules.appointments.index',[
-            'appointments' => Appointment::all()
+            'appointments' => Appointment::withCount('signs')->get()
         ]);
     }
 
@@ -36,6 +36,6 @@ class AppointmentController extends Controller
     public function destroy(Appointment $appointment)
     {
         $appointment->delete();
-        return redirect()->route('patients.index')->with('message', 'Eliminado exitosamente');
+        return redirect()->route('appointments.index')->with('message', 'Eliminado exitosamente');
     }
 }

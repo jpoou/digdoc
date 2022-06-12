@@ -18,15 +18,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="btn-group">
-                                        <a class="btn btn-info" href="{{ route('appointments.create') }}">
-                                            Agregar <i class="fa fa-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                             <div id="saveStage_wrapper"
                                  class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
                                 <div class="row">
@@ -68,6 +59,11 @@
                                                             Fecha de cita
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 407.984px;"
+                                                            aria-label="Position: activate to sort column ascending">
+                                                            Cant. de Signos
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 156.734px;"
                                                             aria-label="Salary: activate to sort column ascending">
                                                             Acciones
@@ -82,6 +78,7 @@
                                                             <td>{{ $appointment->staff?->title }} {{ $appointment->staff?->name }}</td>
                                                             <td>{{ $appointment->status }}</td>
                                                             <td>{{ $appointment->appointment_at }}</td>
+                                                            <td><span class="badge badge-pill badge-primary">{{ $appointment->signs_count }}</span></td>
                                                             <td class="center">
                                                                 <a href="{{ route('appointments.edit', $appointment) }}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
