@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('attachments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('type', ['history', 'diagnosis', 'prescription', 'study']);
             $table->text('description');
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\AttachmentType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +17,11 @@ class Attachment extends Model
      */
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'type'
+    ];
+
+    protected $casts = [
+        'type' => AttachmentType::class
     ];
 }
