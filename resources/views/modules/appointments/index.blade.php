@@ -92,6 +92,9 @@
                                                                         <i class="fa fa-trash-o "></i>
                                                                     </button>
                                                                 </form>
+                                                                <a href="{{ route('appointment.attachment.create', $appointment) }}" class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-user-circle"></i>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                     @endforeach

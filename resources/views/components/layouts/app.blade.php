@@ -21,6 +21,8 @@
     <link href="{{ asset('/assets/css/plugins.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/assets/css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/assets/css/theme-color.css') }}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{{ asset('/assets/plugins/summernote/summernote.css') }}">
 </head>
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-color logo-dark">
 
@@ -68,5 +70,8 @@
     <script src="{{ asset('/assets/plugins/morris/morris.min.js') }}" ></script>
     <script src="{{ asset('/assets/plugins/morris/raphael-min.js') }}" ></script>
     <!-- end js include path -->
+
+    <script src="{{ asset('assets/plugins/summernote/summernote.min.js') }}" ></script>
+    <script src="{{ asset('/assets/js/pages/summernote/summernote-data.js') }}" ></script>
 </body>
 </html>

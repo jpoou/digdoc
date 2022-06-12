@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignIdFor(Appointment::class);
             $table->foreignIdFor(Attachment::class);
-            $table->enum('type', ['record', 'diagnosis', 'prescription', 'study']);
+            $table->enum('type', ['history', 'diagnosis', 'prescription', 'study']);
             $table->integer('quantity');
             $table->text('indications');
             $table->timestamps();
