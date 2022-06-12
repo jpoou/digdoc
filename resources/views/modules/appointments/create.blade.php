@@ -68,7 +68,7 @@
                                                 <select class="form-control input-height" name="branch_id" id="branch_id">
                                                     <option value="">Seleccione el lugar</option>
                                                     @foreach($branches as $branch)
-                                                        <option value="{{ $branch->id }}">{{ $branch->name }}</option>
+                                                        <option value="{{ $branch->id }}" @selected(old('branch_id') == $branch->id)>{{ $branch->name }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('branch_id')
@@ -84,7 +84,7 @@
                                                 <select class="form-control input-height" name="doctor_id" id="doctor_id">
                                                     <option value="">Seleccione un doctor</option>
                                                     @foreach($doctors as $doctor)
-                                                        <option value="{{ $doctor->id }}">{{ $doctor->title }} {{ $doctor->name }}</option>
+                                                        <option value="{{ $doctor->id }}" @selected(old('doctor_id') == $doctor->id)>{{ $doctor->title }} {{ $doctor->name }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('doctor_id')
