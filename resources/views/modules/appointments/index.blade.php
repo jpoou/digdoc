@@ -76,24 +76,31 @@
                                                             <td class="sorting_1">{{ $appointment->patient->name }} {{ $appointment->patient->surname }}</td>
                                                             <td>{{ $appointment->branch->name }}</td>
                                                             <td>{{ $appointment->staff?->title }} {{ $appointment->staff?->name }}</td>
-                                                            <td>{{ $appointment->status }}</td>
+                                                            <td><span class="badge badge-pill badge-{{ $appointment->status->color() }}">{{ $appointment->status->text() }}</span></td>
                                                             <td>{{ $appointment->appointment_at }}</td>
-                                                            <td><span class="badge badge-pill badge-primary">{{ $appointment->signs_count }}</span></td>
+                                                            <td>
+                                                                <span class="badge badge-pill badge-primary">{{ $appointment->signs_count }}</span>
+                                                            </td>
                                                             <td class="center">
-                                                                <a href="{{ route('appointments.edit', $appointment) }}" class="btn btn-tbl-edit btn-xs">
+                                                                <a href="{{ route('appointments.edit', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
-                                                                <a href="{{ route('appointment.signs.create', $appointment) }}" class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-user-circle"></i>
+                                                                <a href="{{ route('appointment.signs.create', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-folder-open"></i>
                                                                 </a>
-                                                                <form action="{{ route('appointments.destroy', $appointment) }}" method="POST" style="display: inline">
+                                                                <form action="{{ route('appointments.destroy', $appointment) }}"
+                                                                      method="POST" style="display: inline">
                                                                     @csrf @method('DELETE')
-                                                                    <button class="btn btn-tbl-delete btn-xs" onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">
+                                                                    <button class="btn btn-tbl-delete btn-xs"
+                                                                            onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">
                                                                         <i class="fa fa-trash-o "></i>
                                                                     </button>
                                                                 </form>
-                                                                <a href="{{ route('appointment.attachment.create', $appointment) }}" class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-user-circle"></i>
+                                                                <a href="{{ route('appointment.attachment.create', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-file"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
