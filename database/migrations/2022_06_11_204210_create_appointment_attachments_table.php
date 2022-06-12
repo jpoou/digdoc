@@ -12,9 +12,9 @@ return new class extends Migration {
         Schema::create('appointment_attachment', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Appointment::class);
-            $table->foreignIdFor(Attachment::class);
+            $table->foreignIdFor(Attachment::class)->nullable();
             $table->enum('type', ['history', 'diagnosis', 'prescription', 'study']);
-            $table->integer('quantity');
+            $table->integer('quantity')->nullable();
             $table->text('indications');
             $table->timestamps();
         });

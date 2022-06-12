@@ -18,4 +18,14 @@ enum AttachmentType: string
             AttachmentType::STUDY => 'orange'
         };
     }
+
+    public function text(): string
+    {
+        return match ($this) {
+            AttachmentType::HISTORY => 'Historial',
+            AttachmentType::DIAGNOSIS => 'Diagnostico',
+            AttachmentType::PRESCRIPTION => 'Receta',
+            AttachmentType::STUDY => 'Estudio'
+        };
+    }
 }

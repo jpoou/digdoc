@@ -55,4 +55,11 @@ class Appointment extends Model
             ->withTimestamps()
             ->withPivot('value');
     }
+
+    public function attachments()
+    {
+        return $this->belongsToMany(Attachment::class)
+            ->using(AppointmentAttachment::class)
+            ->withTimestamps();
+    }
 }

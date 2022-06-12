@@ -3,7 +3,7 @@
     <div class="page-content-wrapper">
         <div class="page-content" style="min-height:613px">
 
-            <x-pages.page-bar title="Ajuntar">
+            <x-pages.page-bar title="Adjuntar información">
                 <li>
                     <a class="parent-item" href="{{ route('appointments.index') }}">Citas</a>&nbsp;
                     <i class="fa fa-angle-right"></i>
@@ -23,7 +23,68 @@
                                 <header>Adjuntar</header>
                             </div>
                             <div class="card-body" id="bar-parent">
-                                <textarea name="formsummernote" id="summernote" cols="30" rows="10"></textarea>
+                                <form action="{{ route('appointment.attachment.store', $appointment) }}" class="form-horizontal" novalidate="novalidate" method="post">
+                                    <div class="form-body">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="type">Tipo:</label>
+                                                <select class="form-control input-height" id="type" name="type" aria-invalid="false" required>
+                                                    @foreach(App\Enums\AttachmentType::cases() as $type)
+                                                        <option value="{{ $type->value }}">{{ $type->text() }}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('type')
+                                                <span class="help-block text-danger"> {{ $message }} </span>
+                                                @enderror
+                                            </div>
+                                            <div class="col">
+                                                <label for="attachment_id" data-toggle="tooltip" data-placement="right"
+                                                       title="Diagnostico: Adjuntar indicador, Receta: Adj. Medicamento, Estudio: Adj. Examen/Imagenes"
+                                                >Adjunto:</label>
+                                                <select class="form-control input-height" id="attachment_id" name="attachment_id" aria-invalid="false">
+                                                    @foreach($attachments as $attachment)
+                                                        <option value="{{ $attachment->id }}">{{ $attachment->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('attachment_id')
+                                                <span class="help-block text-danger"> {{ $message }} </span>
+                                                @enderror
+                                                <ul class="my-2">
+                                                    <li><strong>Diagnostico:</strong> Adj. indicador</li>
+                                                    <li><strong>Receta:</strong> Adj. Medicamento</li>
+                                                    <li><strong>Estudio:</strong> Adj. Examen/Imagen</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col">
+                                                <label for="quantity">Cantidad:</label>
+                                                <input type="text" name="quantity" id="quantity" value="{{ old('quantity') }}" class="form-control input-height">
+                                                @error('quantity')
+                                                <span class="help-block text-danger"> {{ $message }} </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label class="my-3" for="indications">Indicaciones / Comentarios / Observaciones: </label>
+                                                <textarea class="form-control" name="indications" id="indications" rows="10"></textarea>
+                                                @error('indications')
+                                                <span class="help-block text-danger"> {{ $message }} </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="offset-md-3 col-md-9">
+                                                    <button type="submit" class="btn btn-info">Enviar</button>
+                                                    <a href="{{ route('appointments.index') }}" class="btn btn-default">Cancelar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
