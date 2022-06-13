@@ -56,7 +56,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link nav-toggle">
-                        <i class="material-icons">accessible</i>
+                        <i class="material-icons">perm_contact_calendar</i>
                         <span class="title">Pacientes</span>
                         <span class="arrow"></span>
                     </a>
