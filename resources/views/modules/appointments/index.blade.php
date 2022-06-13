@@ -18,15 +18,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="btn-group">
-                                        <a class="btn btn-info" href="{{ route('appointments.create') }}">
-                                            Agregar <i class="fa fa-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                             <div id="saveStage_wrapper"
                                  class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
                                 <div class="row">
@@ -68,6 +59,11 @@
                                                             Fecha de cita
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 407.984px;"
+                                                            aria-label="Position: activate to sort column ascending">
+                                                            Cant. de Signos
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 156.734px;"
                                                             aria-label="Salary: activate to sort column ascending">
                                                             Acciones
@@ -80,21 +76,32 @@
                                                             <td class="sorting_1">{{ $appointment->patient->name }} {{ $appointment->patient->surname }}</td>
                                                             <td>{{ $appointment->branch->name }}</td>
                                                             <td>{{ $appointment->staff?->title }} {{ $appointment->staff?->name }}</td>
-                                                            <td>{{ $appointment->status }}</td>
+                                                            <td><span class="badge badge-pill badge-{{ $appointment->status->color() }}">{{ $appointment->status->text() }}</span></td>
                                                             <td>{{ $appointment->appointment_at }}</td>
+                                                            <td>
+                                                                <span class="badge badge-pill badge-primary">{{ $appointment->signs_count }}</span>
+                                                            </td>
                                                             <td class="center">
-                                                                <a href="{{ route('appointments.edit', $appointment) }}" class="btn btn-tbl-edit btn-xs">
+                                                                <a href="{{ route('appointments.edit', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
-                                                                <a href="{{ route('appointment.signs.create', $appointment) }}" class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-user-circle"></i>
+                                                                <a href="{{ route('appointment.signs.create', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-folder-open"></i>
                                                                 </a>
-                                                                <form action="{{ route('appointments.destroy', $appointment) }}" method="POST" style="display: inline">
+                                                                <form action="{{ route('appointments.destroy', $appointment) }}"
+                                                                      method="POST" style="display: inline">
                                                                     @csrf @method('DELETE')
-                                                                    <button class="btn btn-tbl-delete btn-xs" onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">
+                                                                    <button class="btn btn-tbl-delete btn-xs"
+                                                                            onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">
                                                                         <i class="fa fa-trash-o "></i>
                                                                     </button>
                                                                 </form>
+                                                                <a href="{{ route('appointment.attachment.create', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-file"></i>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                     @endforeach

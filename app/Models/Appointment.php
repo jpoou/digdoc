@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\AppointmentStatus;
 use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
@@ -21,6 +22,15 @@ class Appointment extends Model
         'to',
         'reason',
         'status'
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'status' => AppointmentStatus::class
     ];
 
     public function patient()
@@ -44,5 +54,12 @@ class Appointment extends Model
             ->using(AppointmentSign::class)
             ->withTimestamps()
             ->withPivot('value');
+    }
+
+    public function attachments()
+    {
+        return $this->belongsToMany(Attachment::class)
+            ->using(AppointmentAttachment::class)
+            ->withTimestamps();
     }
 }

@@ -12,7 +12,7 @@ class PatientController extends Controller
     public function index()
     {
         return view('modules.patients.index',[
-            'patients' => Patient::all()
+            'patients' => Patient::withCount('appointments')->get()
         ]);
     }
 

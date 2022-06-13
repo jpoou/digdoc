@@ -1,9 +1,9 @@
 @csrf
 <div class="form-body">
     <div class="form-group row">
-        <label class="control-label col-md-3" for="identifier">CUI</label>
+        <label class="control-label col-md-3" for="identifier">CUI / No. Caso</label>
         <div class="col-md-5">
-            <input type="number" name="identifier" id="identifier" value="{{ old('identifier', $patient) }}" class="form-control input-height" required>
+            <input type="text" name="identifier" id="identifier" value="{{ old('identifier', $patient) }}" class="form-control input-height" required>
             @error('identifier')
             <span class="help-block text-danger"> {{ $message }} </span>
             @enderror
