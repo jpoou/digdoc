@@ -78,6 +78,20 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i class="material-icons">settings</i>
+                        <span class="title">Otros</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item  ">
+                            <a href="{{ route('attachments.index') }}" class="nav-link ">
+                                <span class="title">Adjuntos</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

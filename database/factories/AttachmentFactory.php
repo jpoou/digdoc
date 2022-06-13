@@ -13,7 +13,8 @@ class AttachmentFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'description' => $this->faker->text(150)
+            'description' => $this->faker->text(150),
+            'type' => $this->faker->randomElement(['history', 'diagnosis', 'prescription', 'study'])
         ];
     }
 }
