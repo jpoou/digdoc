@@ -19,7 +19,7 @@
         <div class="col-md-5">
             <select class="form-control" id="type" name="type" required>
                 @foreach(App\Enums\AttachmentType::cases() as $type)
-                    <option value="{{ $type->value }}" @selected(old('type', $attachment->type->value) == $type->value)>{{ $type->text() }}</option>
+                    <option value="{{ $type->value }}" @selected(old('type', optional($attachment->type)->value) == $type->value)>{{ $type->text() }}</option>
                 @endforeach
             </select>
             @error('type')
