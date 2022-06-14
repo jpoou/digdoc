@@ -86,6 +86,9 @@
                                                                    class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
+                                                                <a href="{{ route('report.appointment.general', $appointment) }}" class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-pagelines"></i>
+                                                                </a>
                                                                 <a href="{{ route('appointment.signs.create', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-folder-open"></i>

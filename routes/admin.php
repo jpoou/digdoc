@@ -9,3 +9,7 @@ Route::resource('patient.appointment', \App\Http\Controllers\Admin\PatientAppoin
 Route::resource('appointments', \App\Http\Controllers\Admin\AppointmentController::class);
 Route::resource('appointment.signs', \App\Http\Controllers\Admin\AppointmentSignController::class)->only('create', 'store');
 Route::resource('appointment.attachment', \App\Http\Controllers\Admin\AppointmentAttachmentController::class)->only('create', 'store');
+
+Route::prefix('report')->name('report.')->group(function (){
+    Route::any('appointment/{appointment}/general', \App\Http\Controllers\Admin\Reports\GeneralController::class)->name('appointment.general');
+});
