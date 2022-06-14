@@ -1,9 +1,9 @@
-<x-layouts.app title="Sucursales">
+<x-layouts.app title="{{ config('app.name') }} | Adjuntos">
     <div class="page-content-wrapper">
         <div class="page-content" style="min-height:613px">
 
-            <x-pages.page-bar title="Hospitales">
-                <li class="active">Lista de hospitales</li>
+            <x-pages.page-bar title="Adjuntos">
+                <li class="active">Lista de Adjuntos</li>
             </x-pages.page-bar>
 
             <div class="row">
