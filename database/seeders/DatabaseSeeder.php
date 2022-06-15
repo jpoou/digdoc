@@ -17,13 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
-        ]);
         Staff::factory()->has(Branch::factory())->count(5)->create();
-        Attachment::factory()->count(30)->create();
+        Attachment::factory()->count(5)->create();
 
+        $this->call(UserSeeder::class);
         $this->call(SingSeeder::class);
     }
 }
