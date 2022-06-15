@@ -11,8 +11,6 @@ class AppointmentSignController extends Controller
 {
     public function create(Appointment $appointment)
     {
-        // return $appointment->load('signs');
-
         return view('modules.appointments.signs', [
             'appointment' => $appointment->load('signs'),
             'signs' => Sign::all()

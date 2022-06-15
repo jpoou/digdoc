@@ -25,8 +25,8 @@ class PatientAppointmentController extends Controller
         $valid = $request->validated();
         $valid['creator_id'] = auth()->id();
 
-        $patient->appointments()->create($valid);
+        $appointment = $patient->appointments()->create($valid);
 
-        return redirect()->route('patients.index')->with('Cita creada exitosamente');
+        return redirect()->route('appointment.signs.create', $appointment )->with('Cita creada exitosamente');
     }
 }
