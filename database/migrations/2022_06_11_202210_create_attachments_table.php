@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->enum('type', ['history', 'diagnosis', 'prescription', 'study']);
             $table->text('description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

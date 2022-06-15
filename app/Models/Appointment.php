@@ -4,9 +4,13 @@ namespace App\Models;
 
 use App\Enums\AppointmentStatus;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Appointment extends Model
+class Appointment extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable, SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *

@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Staff extends Model
+class Staff extends Model implements Auditable
 {
-    use SoftDeletes, HasFactory;
+    use SoftDeletes, HasFactory, \OwenIt\Auditing\Auditable;
 
     /**
      * The table associated with the model.
