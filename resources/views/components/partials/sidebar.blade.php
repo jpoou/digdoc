@@ -90,6 +90,11 @@
                                 <span class="title">Adjuntos</span>
                             </a>
                         </li>
+                        <li class="nav-item  ">
+                            <a href="{{ route('roles.index') }}" class="nav-link ">
+                                <span class="title">Adjuntos</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
