@@ -92,7 +92,7 @@
                         </li>
                         <li class="nav-item  ">
                             <a href="{{ route('roles.index') }}" class="nav-link ">
-                                <span class="title">Adjuntos</span>
+                                <span class="title">Roles</span>
                             </a>
                         </li>
                     </ul>
