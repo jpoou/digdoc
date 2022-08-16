@@ -1,0 +1,35 @@
+import:
+  - recipe/laravel.php
+  - contrib/php-fpm.php
+  - contrib/npm.php
+
+config:
+  application: 'digdoc'
+  repository: 'https://github.com/jpoou/digdoc.git'
+  php_fpm_version: '8.0'
+
+hosts:
+  prod:
+    remote_user: root
+    hostname: digdoc.devpoou.com
+    deploy_path: '/var/www/{{hostname}}'
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:vendors
+    - artisan:storage:link
+    - artisan:view:cache
+    - artisan:config:cache
+    - artisan:down
+    - artisan:migrate
+    - artisan:db:seed
+    - artisan:up
+    - deploy:publish
+    - php-fpm:reload
+  npm:run:prod:
+    - run: 'cd {{release_or_current_path}} && npm run prod'
+
+
+after:
+  deploy:failed: deploy:unlock
