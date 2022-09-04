@@ -6,7 +6,7 @@ import:
 config:
   application: 'digdoc'
   repository: 'https://github.com/jpoou/digdoc.git'
-  php_fpm_version: '8.0'
+  php_fpm_version: '8.1'
 
 hosts:
   prod:
@@ -21,6 +21,8 @@ tasks:
     - artisan:storage:link
     - artisan:view:cache
     - artisan:config:cache
+    - artisan:optimize
+    - artisan:route:cache
     - artisan:down
     - artisan:migrate
     - artisan:db:seed
