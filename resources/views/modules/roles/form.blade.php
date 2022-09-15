@@ -16,7 +16,7 @@
         <div class="col-md-5">
             <select class="form-control input-height js-basic-single" name="permissions[]" id="permissions" multiple>
                 @foreach($permissions as $permission)
-                    <option value="{{ $permission->id }}" {{ $role->permissions->contains($permission) ? 'selected' : '' }}>{{ $permission->name }}</option>
+                    <option value="{{ $permission->id }}" @selected(old('permissions[]', $role->permissions->contains($permission)) == $permission->id)>{{ $permission->name }}</option>
                 @endforeach
             </select>
             @error('permissions')
