@@ -59,16 +59,14 @@
         </label>
         <div class="col-md-5">
             <select name="gender" id="gender" class="form-control input-height">
-                <option value="male">Masculino</option>
-                <option value="feminine">Femenina</option>
-                <option value="other">Otro</option>
+                <option value="male" @if($patient->gender == 'male') selected @endif>Masculino</option>
+                <option value="feminine" @if($patient->gender == 'feminine') selected @endif>Femenina</option>
+                <option value="other" @if($patient->gender == 'other') selected @endif>Otro</option>
             </select>
         </div>
     </div>
     <div class="form-group row">
-        <label class="control-label col-md-3" for="blood_type">Tipo de sangre
-            <span class="required" aria-required="true"> * </span>
-        </label>
+        <label class="control-label col-md-3" for="blood_type">Tipo de sangre</label>
         <div class="col-md-5">
             <select class="form-control input-height" id="blood_type" name="blood_type" aria-invalid="false">
                 <option value="">Select...</option>
@@ -88,17 +86,16 @@
             <span class="required" aria-required="true"> * </span>
         </label>
         <div class="col-md-5">
-            <input type="date" name="birth_at" id="birth_at" value="{{ old('birth_at', $patient) }}" class="form-control input-height" required>
+            <input type="date" name="birth_at" id="birth_at" value="{{ old('birth_at', optional($patient->birth_at)->format('Y-m-d')) }}" class="form-control input-height" required>
             @error('email')
             <span class="help-block text-danger"> {{ $message }} </span>
             @enderror
         </div>
     </div>
     <div class="form-group row">
-        <label class="control-label col-md-3" for="address">Dirección
-        </label>
+        <label class="control-label col-md-3" for="address">Dirección</label>
         <div class="col-md-5">
-            <textarea id="address" name="address" placeholder="456, Pragri flat, varacha road, Surat" class="form-control-textarea" rows="5"></textarea>
+            <textarea id="address" name="address" placeholder="456, Pragri flat, varacha road, Surat" class="form-control-textarea" rows="5">{{ old('address', $patient) }}</textarea>
             @error('address')
             <span class="help-block text-danger"> {{ $message }} </span>
             @enderror
@@ -108,7 +105,7 @@
         <div class="row">
             <div class="offset-md-3 col-md-9">
                 <button type="submit" class="btn btn-info">Crear</button>
-                <a href="{{ route('branches.index') }}" class="btn btn-default">Cancelar</a>
+                <a href="{{ route('patients.index') }}" class="btn btn-default">Cancelar</a>
             </div>
         </div>
     </div>

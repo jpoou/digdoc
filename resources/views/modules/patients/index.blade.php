@@ -92,7 +92,7 @@
                                                             <td>{{ $patient->email }}</td>
                                                             <td>{{ $patient->gender }}</td>
                                                             <td>{{ $patient->blood_type }}</td>
-                                                            <td>{{ $patient->birth_at->format('d-m-Y') }}</td>
+                                                            <td>{{ $patient->birth_at->format('d/m/Y') }}</td>
                                                             <td>{{ $patient->appointments_count }}</td>
                                                             <td class="center">
                                                                 <a href="{{ route('patients.edit', $patient) }}" class="btn btn-tbl-edit btn-xs">

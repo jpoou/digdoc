@@ -12,7 +12,7 @@ class PatientRequest extends FormRequest
             'name' => ['required'],
             'surname' => ['required'],
             'phone' => ['required'],
-            'email' => ['nullable'],
+            'email' => ['nullable', 'email'],
             'gender' => ['required'],
             'blood_type' => ['nullable'],
             'birth_at' => ['nullable', 'date'],
