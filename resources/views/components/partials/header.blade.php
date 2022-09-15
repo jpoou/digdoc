@@ -4,7 +4,7 @@
         <!-- logo start -->
         <div class="page-logo">
             <a href="/">
-                <span class="logo-default" >{{ env('APP_NAME') }}</span> </a>
+                <span class="logo-default" >{{ config('app.name') }}</span> </a>
         </div>
         <!-- logo end -->
         <ul class="nav navbar-nav navbar-left in">
@@ -22,7 +22,7 @@
                     <li>
                         <ul class="dropdown-menu-list app-icon-dropdown" data-handle-color="#637283">
                             <li>
-                                <a href="#" class="patient-icon">
+                                <a href="{{ route('appointments.index') }}" class="patient-icon">
                                     <i class="material-icons">local_hotel</i>
                                     <span class="block">Citas</span>
                                 </a>
