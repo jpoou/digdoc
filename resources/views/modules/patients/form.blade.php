@@ -70,7 +70,7 @@
         <div class="col-md-5">
             <select class="form-control input-height" id="blood_type" name="blood_type" aria-invalid="false">
                 <option value="">Select...</option>
-                @foreach(config('system.blood_type') as $type)
+                @foreach(config('system.blood_types') as $type)
                     <option value="{{ $type }}" @selected(old('blood_type', $patient) == $type)>{{ $type }}</option>
                 @endforeach
             </select>
