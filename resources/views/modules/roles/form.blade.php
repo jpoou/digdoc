@@ -11,6 +11,19 @@
             @enderror
         </div>
     </div>
+    <div class="form-group row">
+        <label class="control-label col-md-3" for="permissions">Permisos</label>
+        <div class="col-md-5">
+            <select class="form-control input-height js-basic-single" name="permissions[]" id="permissions" multiple>
+                @foreach($permissions as $permission)
+                    <option value="{{ $permission->id }}" {{ $role->permissions->contains($permission) ? 'selected' : '' }}>{{ $permission->name }}</option>
+                @endforeach
+            </select>
+            @error('permissions')
+            <span class="help-block text-danger"> {{ $message }} </span>
+            @enderror
+        </div>
+    </div>
     <div class="form-actions">
         <div class="row">
             <div class="offset-md-3 col-md-9">
@@ -20,3 +33,11 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('.js-basic-single').select2();
+        });
+    </script>
+@endpush

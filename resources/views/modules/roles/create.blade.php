@@ -18,7 +18,7 @@
                         </div>
                         <div class="card-body">
                             <form action="{{ route('roles.store') }}" class="form-horizontal" method="POST">
-                                @include('modules.roles.form', [ 'role' => new Spatie\Permission\Models\Role() ])
+                                @include('modules.roles.form', [ 'role' => new Spatie\Permission\Models\Role(), 'permissions' => $permissions ])
                             </form>
                         </div>
                     </div>

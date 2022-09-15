@@ -81,5 +81,7 @@
     <!--select2-->
     <script src="{{ asset('/assets/plugins/select2/js/select2.js') }}" ></script>
     <script src="{{ asset('/assets/js/pages/select2/select2-init.js') }}" ></script>
+
+    @stack('scripts')
 </body>
 </html>

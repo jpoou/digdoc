@@ -19,7 +19,7 @@ d<x-layouts.app title="Editar rol">
                         <div class="card-body">
                             <form action="{{ route('roles.update', $role) }}" class="form-horizontal" method="POST">
                                 @method('PUT')
-                                @include('modules.roles.form', [ 'role' => $role ])
+                                @include('modules.roles.form', [ 'role' => $role, 'permissions' => $permissions ])
                             </form>
                         </div>
                     </div>
