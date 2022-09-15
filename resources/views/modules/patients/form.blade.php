@@ -59,9 +59,9 @@
         </label>
         <div class="col-md-5">
             <select name="gender" id="gender" class="form-control input-height">
-                <option value="male" @if($patient->gender == 'male') selected @endif>Masculino</option>
-                <option value="feminine" @if($patient->gender == 'feminine') selected @endif>Femenina</option>
-                <option value="other" @if($patient->gender == 'other') selected @endif>Otro</option>
+                @foreach(config('system.genders') as $gender)
+                    <option value="{{ $gender }}" @selected(old('gender', $patient) == $gender)>{{ $gender }}</option>
+                @endforeach
             </select>
         </div>
     </div>
@@ -70,14 +70,9 @@
         <div class="col-md-5">
             <select class="form-control input-height" id="blood_type" name="blood_type" aria-invalid="false">
                 <option value="">Select...</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
+                @foreach(config('system.blood_type') as $type)
+                    <option value="{{ $type }}" @selected(old('blood_type', $patient) == $type)>{{ $type }}</option>
+                @endforeach
             </select>
         </div>
     </div>
