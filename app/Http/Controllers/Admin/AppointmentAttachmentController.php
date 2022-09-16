@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\AppointmentAttachmentRequest;
-use App\Models\Appointment;
 use App\Models\Attachment;
-use Illuminate\Http\Request;
+use App\Models\Appointment;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\AppointmentAttachmentRequest as Request;
 
 class AppointmentAttachmentController extends Controller
 {
@@ -18,7 +17,7 @@ class AppointmentAttachmentController extends Controller
         ]);
     }
 
-    public function store(AppointmentAttachmentRequest $request, Appointment $appointment)
+    public function store(Request $request, Appointment $appointment)
     {
         $appointment->attachments()->attach($request->attachment_id, $request->validated());
         return redirect()->route('appointments.index')
