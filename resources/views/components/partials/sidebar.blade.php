@@ -40,6 +40,11 @@
                             </a>
                         </li>
                         <li class="nav-item  ">
+                            <a href="{{ route('staffs.index') }}" class="nav-link ">
+                                <span class="title">Personal</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
                             <a href="{{ route('branches.create') }}" class="nav-link ">
                                 <span class="title">Crear hospital</span>
                             </a>
