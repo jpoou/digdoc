@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Appointment;
 
 use App\Models\Appointment;
 use App\Http\Controllers\Controller;

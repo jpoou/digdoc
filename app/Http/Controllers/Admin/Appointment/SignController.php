@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Appointment;
 
+use App\Models\Sign;
 use App\Models\Appointment;
 use App\Http\Controllers\Controller;
-use App\Models\Sign;
 use Illuminate\Http\Request;
 
-class AppointmentSignController extends Controller
+class SignController extends Controller
 {
     public function create(Appointment $appointment)
     {

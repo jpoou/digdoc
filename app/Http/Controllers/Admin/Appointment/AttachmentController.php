@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Appointment;
 
 use App\Models\Attachment;
 use App\Models\Appointment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentAttachmentRequest as Request;
 
-class AppointmentAttachmentController extends Controller
+class AttachmentController extends Controller
 {
     public function create(Appointment $appointment)
     {
