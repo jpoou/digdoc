@@ -13,7 +13,7 @@
 
             <div class="col-md-12">
 
-                <x-pages.plofile-patient :patient="$patient"/>
+                <x-pages.profile-patient :patient="$patient"/>
 
                 <!-- BEGIN PROFILE CONTENT -->
                 <div class="profile-content">
