@@ -3,7 +3,7 @@
     <div class="form-group row">
         <label class="control-label col-md-3" for="identifier">CUI / No. Caso</label>
         <div class="col-md-5">
-            <input type="text" name="identifier" id="identifier" value="{{ old('identifier', $patient) }}" class="form-control input-height" required>
+            <input type="text" name="identifier" id="identifier" value="{{ old('identifier', $patient) }}" class="form-control input-height">
             @error('identifier')
             <span class="help-block text-danger"> {{ $message }} </span>
             @enderror
@@ -43,11 +43,9 @@
         </div>
     </div>
     <div class="form-group row">
-        <label class="control-label col-md-3" for="email">Correo
-            <span class="required" aria-required="true"> * </span>
-        </label>
+        <label class="control-label col-md-3" for="email">Correo</label>
         <div class="col-md-5">
-            <input type="email" name="email" id="email" value="{{ old('email', $patient) }}" class="form-control input-height" required>
+            <input type="email" name="email" id="email" value="{{ old('email', $patient) }}" class="form-control input-height">
             @error('email')
             <span class="help-block text-danger"> {{ $message }} </span>
             @enderror
@@ -59,8 +57,8 @@
         </label>
         <div class="col-md-5">
             <select name="gender" id="gender" class="form-control input-height">
-                @foreach(config('system.genders') as $gender)
-                    <option value="{{ $gender }}" @selected(old('gender', $patient) == $gender)>{{ $gender }}</option>
+                @foreach(App\Enums\GenderType::cases() as $type)
+                    <option value="{{ $type->value }}" @selected(old('gender', $patient) == $type->value)>{{ $type->text() }}</option>
                 @endforeach
             </select>
         </div>

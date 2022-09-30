@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\GenderType;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -27,8 +28,14 @@ class Patient extends Model implements Auditable
         'identifier'
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
     protected $casts = [
-        'birth_at' => 'date'
+        'birth_at' => 'date',
+        'gender' => GenderType::class
     ];
 
     /**

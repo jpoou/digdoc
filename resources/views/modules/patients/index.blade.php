@@ -90,7 +90,7 @@
                                                             <td class="sorting_1">{{ $patient->full_name }}</td>
                                                             <td>{{ $patient->phone }}</td>
                                                             <td>{{ $patient->email }}</td>
-                                                            <td>{{ $patient->gender }}</td>
+                                                            <td>{{ $patient->gender->text() }}</td>
                                                             <td>{{ $patient->blood_type }}</td>
                                                             <td>{{ $patient->birth_at->format('d/m/Y') }}</td>
                                                             <td>{{ $patient->appointments_count }}</td>
