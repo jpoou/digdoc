@@ -35,7 +35,7 @@
             <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                     <b>Genero </b>
-                    <div class="profile-desc-item pull-right">{{ $patient->gender }}</div>
+                    <div class="profile-desc-item pull-right">{{ $patient->gender->text() }}</div>
                 </li>
                 <li class="list-group-item">
                     <b>Edad </b>
