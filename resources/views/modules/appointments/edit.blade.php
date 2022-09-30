@@ -13,7 +13,7 @@
 
             <div class="col-md-12">
 
-                <x-pages.profile-patient :patient="$patient"/>
+                <x-pages.profile-patient :patient="$appointment->patient"/>
 
                 <!-- BEGIN PROFILE CONTENT -->
                 <div class="profile-content">
@@ -23,15 +23,15 @@
                                 <header>Reservar una cita</header>
                             </div>
                             <div class="card-body" id="bar-parent">
-                                <form action="{{ route('patient.appointment.store', $patient) }}" class="form-horizontal" novalidate="novalidate" method="post">
+                                <form action="{{ route('appointments.update', $appointment) }}" class="form-horizontal" novalidate="novalidate" method="post">
                                     @csrf
-                                    @include('modules.appointments.form', [ 'appointment' => \App\Models\Appointment::class ])
-
+                                    @method('PUT')
+                                    @include('modules.appointments.form', [ 'appointment' => $appointment ])
                                     <div class="form-actions">
                                         <div class="row">
                                             <div class="offset-md-3 col-md-9">
                                                 <button type="submit" class="btn btn-info">Enviar</button>
-                                                <a href="{{ route('patients.index') }}" class="btn btn-default">Cancelar</a>
+                                                <a href="{{ route('appointments.index') }}" class="btn btn-default">Cancelar</a>
                                             </div>
                                         </div>
                                     </div>
