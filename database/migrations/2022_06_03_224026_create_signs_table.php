@@ -14,8 +14,9 @@ return new class extends Migration {
             $table->string('unit', 15);
             $table->enum('type', ['number', 'text']);
             $table->boolean('required')->default(true);
-            $table->string('description');
+            $table->boolean('active')->default(true);
             $table->timestamps();
+            $table->string('description');
             $table->softDeletes();
         });
     }
