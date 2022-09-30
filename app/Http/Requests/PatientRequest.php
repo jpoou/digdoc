@@ -15,7 +15,7 @@ class PatientRequest extends FormRequest
             'email' => ['nullable', 'email'],
             'gender' => ['required'],
             'blood_type' => ['nullable'],
-            'birth_at' => ['nullable', 'date'],
+            'birth_at' => ['required', 'date'],
             'identifier' => [ 'nullable' ]
         ];
     }
