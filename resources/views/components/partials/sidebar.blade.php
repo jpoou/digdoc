@@ -74,8 +74,8 @@
                             </a>
                         </li>
                         <li class="nav-item  ">
-                            <a href="{{ route('patients.create') }}" class="nav-link ">
-                                <span class="title">Crear paciente</span>
+                            <a href="{{ route('appointment.patient.find') }}" class="nav-link ">
+                                <span class="title">Crear cita</span>
                             </a>
                         </li>
                     </ul>
