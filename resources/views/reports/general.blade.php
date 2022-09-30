@@ -20,7 +20,7 @@
             <td>Fecha:</td>
             <td>{{ $appointment->patient->created_at->format('d/m/Y') }}</td>
             <td>Sexo:</td>
-            <td>{{ $appointment->patient->gender }}</td>
+            <td>{{ $appointment->patient->gender->text() }}</td>
         </tr>
         <tr>
             <td>Nombres:</td>
