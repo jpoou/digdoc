@@ -102,6 +102,11 @@
                                 <span class="title">Enfermedades</span>
                             </a>
                         </li>
+                        <li class="nav-item  ">
+                            <a href="{{ route('medicines.index') }}" class="nav-link ">
+                                <span class="title">Medicamentos</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
