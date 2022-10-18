@@ -48,7 +48,7 @@
                 <!-- start manage user dropdown -->
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle " src="../assets/img/dp.jpg" />
+                        <img alt="" class="img-circle " src="{{ asset('/assets/img/dp.jpg') }}" />
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>

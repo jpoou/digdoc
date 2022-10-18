@@ -5,4 +5,4 @@
  *
  **/
 "use strict";
- $('#mainTable').editableTableWidget();
+ const table = $('#mainTable').editableTableWidget();
