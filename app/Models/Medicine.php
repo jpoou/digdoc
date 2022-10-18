@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Medicine extends Model
+class Medicine extends Model implements Auditable
 {
     use SoftDeletes, \OwenIt\Auditing\Auditable;
 
