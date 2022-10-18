@@ -52,9 +52,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <label class="control-label col-md-3" for="doctor_id">Doctor consultor
-            <span class="required" aria-required="true"> * </span>
-        </label>
+        <label class="control-label col-md-3" for="doctor_id">Doctor consultor</label>
         <div class="col-md-5">
             <select class="form-control input-height" name="doctor_id" id="doctor_id">
                 <option value="">Seleccione un doctor</option>
@@ -68,8 +66,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <label class="control-label col-md-3" for="reason">Motivos
-        </label>
+        <label class="control-label col-md-3" for="reason">Motivos</label>
         <div class="col-md-5">
             <textarea name="reason" class="form-control-textarea" rows="5" id="reason">{{ old('reason', optional($appointment)->reason) }}</textarea>
         </div>
