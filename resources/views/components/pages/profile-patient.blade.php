@@ -30,7 +30,7 @@
         </div>
         <div class="card-body no-padding height-9">
             <div class="profile-desc">
-                Hello I am James Smith a Gynaecologist in Sanjivni Hospital Surat. I love to work with all my hospital staff and seniour doctors.
+                --
             </div>
             <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
@@ -52,7 +52,7 @@
             </ul>
         </div>
     </div>
-    <div class="card">
+    <!-- <div class="card">
         <div class="card-head card-topline-aqua">
             <header>Dirección</header>
         </div>
@@ -64,6 +64,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 <!-- END BEGIN PROFILE SIDEBAR -->
