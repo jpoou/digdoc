@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Branch;
 use App\Models\Staff;
 use App\Http\Requests\StaffRequest;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,9 @@ class StaffController extends Controller
 
     public function create()
     {
-        return view('modules.staffs.create');
+        return view('modules.staffs.create', [
+            'branches' => Branch::all()
+        ]);
     }
 
     public function store(StaffRequest $request)
@@ -34,7 +37,8 @@ class StaffController extends Controller
     public function edit(Staff $staff)
     {
         return view('modules.staffs.edit', [
-            'staff' => $staff
+            'staff' => $staff,
+            'branches' => Branch::all()
         ]);
     }
 

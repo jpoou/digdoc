@@ -11,7 +11,8 @@ class StaffRequest extends FormRequest
         return [
             'title' => 'required',
             'name' => 'required',
-            'surname' => 'required'
+            'surname' => 'required',
+            'branch_id' => 'nullable|exists:branches,id'
         ];
     }
 

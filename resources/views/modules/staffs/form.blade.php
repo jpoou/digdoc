@@ -5,7 +5,7 @@
             <span class="required" aria-required="true"> * </span>
         </label>
         <div class="col-md-5">
-            <input type="text" name="title" id="title" value="{{ old('name', $staff) }}" class="form-control input-height" required>
+            <input type="text" name="title" id="title" value="{{ old('title', $staff) }}" class="form-control input-height" required>
             @error('title')
             <span class="help-block text-danger"> {{ $message }} </span>
             @enderror
@@ -33,11 +33,27 @@
             @enderror
         </div>
     </div>
+    <div class="form-group row">
+        <label class="control-label col-md-3" for="branch_id">Hospital
+            <span class="required" aria-required="true"> * </span>
+        </label>
+        <div class="col-md-5">
+            <select class="form-control input-height" name="branch_id" id="branch_id">
+                <option value="">Seleccione el lugar</option>
+                @foreach($branches as $branch)
+                    <option value="{{ $branch->id }}" @selected(old('branch_id', $staff) == $branch->id)>{{ $branch->name }}</option>
+                @endforeach
+            </select>
+            @error('branch_id')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
     <div class="form-actions">
         <div class="row">
             <div class="offset-md-3 col-md-9">
                 <button type="submit" class="btn btn-info">Crear</button>
-                <a href="{{ route('diseases.index') }}" class="btn btn-default">Cancelar</a>
+                <a href="{{ route('staffs.index') }}" class="btn btn-default">Cancelar</a>
             </div>
         </div>
     </div>
