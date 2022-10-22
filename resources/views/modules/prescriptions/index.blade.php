@@ -47,15 +47,19 @@
                                     </div>
                                     <div class="form-actions">
                                         <div class="row">
-                                            <div class="col-md-9">
+                                            <div class="col-md-12">
                                                 <button type="submit" class="btn btn-info">Agregar</button>
-                                                <!-- Button trigger modal -->
-                                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#laboratoryModal">
-                                                    <i class="fa fa-plus"></i> Laboratorios
-                                                </a>
-                                                <a type="button" class="btn btn-success" data-toggle="modal" data-target="#diagnosisModal">
-                                                    <i class="fa fa-plus"></i> Diagnostico
-                                                </a>
+                                                    <div class="col">
+                                                        <div class="float-right">
+                                                            <!-- Button trigger modal -->
+                                                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#laboratoryModal">
+                                                                <i class="fa fa-plus"></i> Laboratorios
+                                                            </a>
+                                                            <a type="button" class="btn btn-success" data-toggle="modal" data-target="#diagnosisModal">
+                                                                <i class="fa fa-plus"></i> Diagnostico
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>

@@ -6,6 +6,9 @@ use App\Enums\AppointmentStatus;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Appointment extends Model implements Auditable
 {
@@ -37,22 +40,27 @@ class Appointment extends Model implements Auditable
         'status' => AppointmentStatus::class
     ];
 
-    public function patient()
+    public function patient(): BelongsTo
     {
         return $this->belongsTo(Patient::class);
     }
 
-    public function branch()
+    public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);
     }
 
-    public function staff()
+    public function staff(): BelongsTo
     {
         return $this->belongsTo(Staff::class, 'doctor_id');
     }
 
-    public function signs()
+    public function diagnostics(): HasMany
+    {
+        return $this->hasMany(Diagnostic::class);
+    }
+
+    public function signs(): BelongsToMany
     {
         return $this->belongsToMany(Sign::class)
             ->using(AppointmentSign::class)
@@ -60,7 +68,7 @@ class Appointment extends Model implements Auditable
             ->withPivot('value');
     }
 
-    public function attachments()
+    public function attachments(): BelongsToMany
     {
         return $this->belongsToMany(Attachment::class)
             ->using(AppointmentAttachment::class)
