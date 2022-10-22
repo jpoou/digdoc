@@ -88,7 +88,7 @@
     <div class="form-group row">
         <label class="control-label col-md-3" for="address">Dirección</label>
         <div class="col-md-5">
-            <textarea id="address" name="address" placeholder="456, Pragri flat, varacha road, Surat" class="form-control-textarea" rows="5">{{ old('address', $patient) }}</textarea>
+            <textarea id="address" name="address" placeholder="456, Guatemala, Fraijanes" class="form-control-textarea" rows="5">{{ old('address', $patient) }}</textarea>
             @error('address')
             <span class="help-block text-danger"> {{ $message }} </span>
             @enderror
