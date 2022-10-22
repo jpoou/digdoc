@@ -10,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="card card-box">
                         <div class="card-head">
-                            <header></header>
+                            <header>Listado citas</header>
                         </div>
                         <div class="card-body">
                             <div id="saveStage_wrapper"
@@ -63,6 +63,16 @@
                                                             aria-label="Salary: activate to sort column ascending">
                                                             Acciones
                                                         </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 156.734px;"
+                                                            aria-label="Salary: activate to sort column ascending">
+                                                            Seguimiento
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 156.734px;"
+                                                            aria-label="Salary: activate to sort column ascending">
+                                                            Reportes
+                                                        </th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -81,13 +91,6 @@
                                                                    class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
-                                                                <a href="{{ route('report.appointment.general', $appointment) }}" class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-pagelines"></i>
-                                                                </a>
-                                                                <a href="{{ route('appointment.signs.create', $appointment) }}"
-                                                                   class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-folder-open"></i>
-                                                                </a>
                                                                 <form action="{{ route('appointments.destroy', $appointment) }}"
                                                                       method="POST" style="display: inline">
                                                                     @csrf @method('DELETE')
@@ -96,11 +99,26 @@
                                                                         <i class="fa fa-trash-o "></i>
                                                                     </button>
                                                                 </form>
-                                                                <a href="{{ route('appointment.attachment.create', $appointment) }}"
+                                                            </td>
+                                                            <td class="center">
+                                                                <a href="{{ route('appointment.signs.create', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-file"></i>
+                                                                    <i class="fa fa-signal"></i>
+                                                                </a>
+                                                                <a href="{{ route('appointment.prescription.index', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-folder"></i>
                                                                 </a>
                                                             </td>
+                                                            <th>
+                                                                <a href="{{ route('report.appointment.general', $appointment) }}" class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-file"></i>
+                                                                </a>
+                                                                <a href="{{ route('appointment.attachment.create', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-magnet"></i>
+                                                                </a>
+                                                            </th>
                                                         </tr>
                                                     @endforeach
                                                     </tbody>
