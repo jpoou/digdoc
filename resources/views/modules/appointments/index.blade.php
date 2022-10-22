@@ -116,7 +116,7 @@
                                                                 </a>
                                                                 <a href="{{ route('appointment.attachment.create', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-plus"></i>
+                                                                    <i class="fa fa-magnet"></i>
                                                                 </a>
                                                             </th>
                                                         </tr>
