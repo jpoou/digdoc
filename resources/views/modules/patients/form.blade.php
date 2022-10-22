@@ -67,7 +67,7 @@
         <label class="control-label col-md-3" for="blood_type">Tipo de sangre</label>
         <div class="col-md-5">
             <select class="form-control input-height" id="blood_type" name="blood_type" aria-invalid="false">
-                <option value="">Select...</option>
+                <option value="">Seleccione...</option>
                 @foreach(config('system.blood_types') as $type)
                     <option value="{{ $type }}" @selected(old('blood_type', $patient) == $type)>{{ $type }}</option>
                 @endforeach
