@@ -22,33 +22,47 @@
                                 <header>Recetar</header>
                             </div>
                             <div class="card-body">
-                                <div class="form-body">
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3">
-                                            <label for="name">Medicamento:</label>
-                                            <select type="text" name="name" id="name"
-                                                    class="form-control js-data-select-medicine-ajax"></select>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3">
-                                            <label for="dose">Dosis:</label>
-                                            <input type="text" name="dose" id="dose" class="form-control"
-                                                   placeholder="1 pastilla">
-                                        </div>
-                                        <div class="col-lg-3 col-md-3">
-                                            <label for="frequency">Frecuencia:</label>
-                                            <input type="text" name="frequency" id="frequency" class="form-control"
-                                                   placeholder="Cada 8 hrs">
-                                        </div>
-                                        <div class="col-lg-3 col-md-3">
-                                            <label for="duration">Duración:</label>
-                                            <input type="text" name="duration" id="duration" class="form-control"
-                                                   placeholder="2 semanas">
-                                        </div>
-                                    </div>
-                                    <div class="form-actions">
+                                <form action="{{ route('appointment.prescription.store', $appointment) }}" method="post">
+                                    @csrf
+                                    <div class="form-body">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <button type="submit" class="btn btn-info">Agregar</button>
+                                            <div class="col-lg-3 col-md-3">
+                                                <label for="medicine_id">Medicamento:</label>
+                                                <select type="text" name="medicine_id" id="medicine_id"
+                                                        class="form-control js-data-select-medicine-ajax"></select>
+                                                @error('medicine_id')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="col-lg-3 col-md-3">
+                                                <label for="dose">Dosis:</label>
+                                                <input type="text" name="dose" id="dose" class="form-control"
+                                                       placeholder="1 pastilla">
+                                                @error('dose')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="col-lg-3 col-md-3">
+                                                <label for="frequency">Frecuencia:</label>
+                                                <input type="text" name="frequency" id="frequency" class="form-control"
+                                                       placeholder="Cada 8 hrs">
+                                                @error('frequency')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="col-lg-3 col-md-3">
+                                                <label for="duration">Duración:</label>
+                                                <input type="text" name="duration" id="duration" class="form-control"
+                                                       placeholder="2 semanas">
+                                                @error('duration')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-info">Agregar</button>
                                                     <div class="col">
                                                         <div class="float-right">
                                                             <!-- Button trigger modal -->
@@ -60,10 +74,11 @@
                                                             </a>
                                                         </div>
                                                     </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                                 <div class="col-sm-12">
                                     <div class="card-box">
                                         <div class="card-head">
@@ -79,21 +94,26 @@
                                                         <th>Dosis</th>
                                                         <th>Frecuencia</th>
                                                         <th>Duración</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr>
-                                                        <td tabindex="1">Car</td>
-                                                        <td tabindex="1">100</td>
-                                                        <td tabindex="1">200</td>
-                                                        <td tabindex="1">0</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td tabindex="1">Bike</td>
-                                                        <td tabindex="1">330</td>
-                                                        <td tabindex="1">240</td>
-                                                        <td tabindex="1">1</td>
-                                                    </tr>
+                                                    @foreach($appointment->prescriptions as $prescription)
+                                                        <tr>
+                                                            <td tabindex="1">{{ $prescription->medicine->name }}</td>
+                                                            <td tabindex="1">{{ $prescription->dose }}</td>
+                                                            <td tabindex="1">{{ $prescription->frequency }}</td>
+                                                            <td tabindex="1">{{ $prescription->duration }}</td>
+                                                            <td class="center">
+                                                                <form action="{{ route('prescription.destroy', $prescription) }}" method="POST" style="display: inline">
+                                                                    @csrf @method('DELETE')
+                                                                    <button class="btn btn-tbl-delete btn-xs" onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">
+                                                                        <i class="fa fa-trash-o "></i>
+                                                                    </button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>

@@ -55,6 +55,11 @@ class Appointment extends Model implements Auditable
         return $this->belongsTo(Staff::class, 'doctor_id');
     }
 
+    public function prescriptions(): HasMany
+    {
+        return $this->hasMany(Prescription::class);
+    }
+
     public function diagnostics(): HasMany
     {
         return $this->hasMany(Diagnostic::class);

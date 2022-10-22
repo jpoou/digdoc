@@ -10,13 +10,14 @@ Route::resource('diseases', \App\Http\Controllers\Admin\DiseaseController::class
 Route::resource('staffs', \App\Http\Controllers\Admin\StaffController::class);
 Route::resource('departments', \App\Http\Controllers\Admin\DepartmentController::class);
 Route::resource('medicines', \App\Http\Controllers\Admin\MedicineController::class);
+Route::resource('prescription', \App\Http\Controllers\Admin\PrescriptionController::class);
 
 Route::resource('patient.appointment', \App\Http\Controllers\Admin\PatientAppointmentController::class)->only('create', 'store');
 
 Route::resource('appointments', \App\Http\Controllers\Admin\Appointment\AppointmentController::class);
 Route::resource('appointment.signs', \App\Http\Controllers\Admin\Appointment\SignController::class)->only('create', 'store');
 Route::resource('appointment.attachment', \App\Http\Controllers\Admin\Appointment\AttachmentController::class)->only('create', 'store');
-Route::resource('appointment.prescription', \App\Http\Controllers\Admin\Appointment\PrescriptionController::class)->only('index');
+Route::resource('appointment.prescription', \App\Http\Controllers\Admin\Appointment\PrescriptionController::class)->only('index', 'store');
 Route::resource('appointment.laboratory', \App\Http\Controllers\Admin\Appointment\LaboratoryController::class)->only('store');
 Route::resource('appointment.diagnostic', \App\Http\Controllers\Admin\Appointment\DiagnosticController::class)->only('store');
 
