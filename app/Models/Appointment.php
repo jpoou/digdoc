@@ -60,6 +60,11 @@ class Appointment extends Model implements Auditable
         return $this->hasMany(Diagnostic::class);
     }
 
+    public function laboratories(): HasMany
+    {
+        return $this->hasMany(Laboratory::class);
+    }
+
     public function signs(): BelongsToMany
     {
         return $this->belongsToMany(Sign::class)

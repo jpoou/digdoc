@@ -12,12 +12,11 @@ class LaboratoryController extends Controller
 {
     public function store(Appointment $appointment, LaboratoryRequest $request)
     {
-        $data = $request->validated();
-        $data['appointment_id'] = $appointment->id;
-        $data['user_id'] = auth()->id();
-        $data['file'] = $request->file('file')->store('public');
-
-        Laboratory::create($data);
+        $appointment->laboratories()->create([
+            'user_id' => auth()->id(),
+            'file' => $request->file('file')->store('public'),
+            'observation' => $request->input('observation')
+        ]);
 
         return redirect()->route('appointment.prescription.index', $appointment)->with('message', 'Creado exitosamente');
     }
