@@ -57,13 +57,13 @@
                         <span class="info-box-icon push-bottom bg-success"><i
                                 class="material-icons">content_cut</i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Operations</span>
-                            <span class="info-box-number">10</span>
+                            <span class="info-box-text">Personal</span>
+                            <span class="info-box-number">{{ $doctors_count }}</span>
                             <div class="progress">
                                 <div class="progress-bar bg-success" style="width: 85%"></div>
                             </div>
                             <span class="progress-description">
-					                    85% Increase in 28 Days
+					                    Aumento del 80% en 28 días
 					                  </span>
                         </div>
                         <!-- /.info-box-content -->
@@ -74,15 +74,15 @@
                 <div class="col-xl-3 col-md-6 col-12">
                     <div class="info-box bg-white">
                         <span class="info-box-icon push-bottom bg-info"><i
-                                class="material-icons">monetization_on</i></span>
+                                class="material-icons">home</i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Hospital Earning</span>
-                            <span class="info-box-number">13,921</span><span>$</span>
+                            <span class="info-box-text">Hospitales</span>
+                            <span class="info-box-number">{{ $branches_count }}</span>
                             <div class="progress">
                                 <div class="progress-bar bg-info" style="width: 50%"></div>
                             </div>
                             <span class="progress-description">
-					                    50% Increase in 28 Days
+					                    Aumento del 90% en 28 días
 					                  </span>
                         </div>
                         <!-- /.info-box-content -->
