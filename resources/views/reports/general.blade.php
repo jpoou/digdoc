@@ -12,7 +12,7 @@
 
     <table style="padding-top: 15px; width: 100%">
         <tr>
-            <td colspan="6" style="text-align: center"><strong>Datos del Paciente:</strong></td>
+            <td colspan="6" style="text-align: center; padding-bottom: 2%"><strong>Datos del Paciente:</strong></td>
         </tr>
         <tr>
             <td>CUI / No. Caso:</td>
@@ -54,31 +54,65 @@
             <td>{{ $appointment->reason }}</td>
         </tr>
         <tr>
-            <td>Historia de la enfermedad:</td>
-            <td>{{ $appointment->patient->name }}</td>
+            <td>Ultima enfermedad:</td>
+            <td>{{ $appointment->diagnostics->last()->disease->name }}</td>
         </tr>
         <tr>
-            <td>Diagnostico:</td>
-            <td>{{ $appointment->patient->surname }}</td>
+            <td>Ultima receta:</td>
+            <td>{{ $appointment->prescriptions->last()->created_at->diffForHumans() }}</td>
         </tr>
         <tr>
-            <td>Ultima Receta:</td>
-            <td>{{ $appointment->patient->birth_at->format('d/m/Y') }}</td>
-        </tr>
-        <tr>
-            <td>Estudios:</td>
-            <td>{{ $appointment->patient->email }}</td>
+            <td>Ultima estudios:</td>
+            <td>{{ $appointment->laboratories->last()->created_at->diffForHumans() }}</td>
         </tr>
     </table>
     <hr>
-    <table style="padding-top: 5px; width: 100%">
+    <table style="padding-top: 2px; width: 100%">
         <tr>
-            <td colspan="6" style="text-align: center"><strong>Signos Vitales y Talle:</strong></td>
+            <td colspan="6" style="text-align: center; padding-bottom: 2%"><strong>Signos Vitales:</strong></td>
         </tr>
         @foreach($appointment->signs as $sing)
             <tr>
                 <td>{{ $sing->name }}:</td>
                 <td>{{ $sing->pivot->value }} {{ $sing->unit }}</td>
+            </tr>
+        @endforeach
+    </table>
+    <hr>
+    <table style="padding-top: 2px; width: 100%">
+        <tr>
+            <td colspan="6" style="text-align: center; padding-bottom: 2%"><strong>Prescripción:</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Medicina</strong></td>
+            <td><strong>Dosis</strong></td>
+            <td><strong>Frecuencia</strong></td>
+            <td><strong>Duración</strong></td>
+        </tr>
+        @foreach($appointment->prescriptions as $prescription)
+            <tr>
+                <td>{{ $prescription->medicine->name }}:</td>
+                <td>{{ $prescription->dose }}</td>
+                <td>{{ $prescription->frequency }}</td>
+                <td>{{ $prescription->duration }}</td>
+            </tr>
+        @endforeach
+    </table>
+    <hr>
+    <table style="padding-top: 2px; width: 100%">
+        <tr>
+            <td colspan="6" style="text-align: center; padding-bottom: 2%"><strong>Enfermedades:</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Nombre</strong></td>
+            <td><strong>Descripción</strong></td>
+            <td><strong>Permanente</strong></td>
+        </tr>
+        @foreach($appointment->diagnostics as $diagnostic)
+            <tr>
+                <td>{{ $diagnostic->disease->name }}:</td>
+                <td>{{ $diagnostic->disease->description }}:</td>
+                <td>{{ $diagnostic->disease->permanent ? 'Si' : 'No' }}</td>
             </tr>
         @endforeach
     </table>

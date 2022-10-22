@@ -29,14 +29,14 @@
                                             <div class="col-lg-3 col-md-3">
                                                 <label for="medicine_id">Medicamento:</label>
                                                 <select type="text" name="medicine_id" id="medicine_id"
-                                                        class="form-control js-data-select-medicine-ajax"></select>
+                                                        class="form-control js-data-select-medicine-ajax" onchange="fillValuesDefaultMedicine()"></select>
                                                 @error('medicine_id')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="col-lg-3 col-md-3">
                                                 <label for="dose">Dosis:</label>
-                                                <input type="text" name="dose" id="dose" class="form-control"
+                                                <input type="text" name="dose" id="dose" value="{{ old('dose') }}" class="form-control"
                                                        placeholder="1 pastilla">
                                                 @error('dose')
                                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="col-lg-3 col-md-3">
                                                 <label for="frequency">Frecuencia:</label>
-                                                <input type="text" name="frequency" id="frequency" class="form-control"
+                                                <input type="text" name="frequency" id="frequency" value="{{ old('frequency') }}" class="form-control"
                                                        placeholder="Cada 8 hrs">
                                                 @error('frequency')
                                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="col-lg-3 col-md-3">
                                                 <label for="duration">Duración:</label>
-                                                <input type="text" name="duration" id="duration" class="form-control"
+                                                <input type="text" name="duration" id="duration" value="{{ old('frequency') }}" class="form-control"
                                                        placeholder="2 semanas">
                                                 @error('duration')
                                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -156,6 +156,13 @@
                     }
                 }
             });
+
+            function fillValuesDefaultMedicine()
+            {
+                $('#dose').val('1 ml')
+                $('#frequency').val('Cada 2hrs')
+                $('#duration').val('2 meses')
+            }
 
         </script>
     @endpush
