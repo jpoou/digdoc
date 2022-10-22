@@ -100,7 +100,7 @@
                                                     <tbody>
                                                     @foreach($appointment->prescriptions as $prescription)
                                                         <tr>
-                                                            <td tabindex="1">{{ $prescription->medicine->name }}</td>
+                                                            <td tabindex="1">{{ $prescription->medicine?->name }}</td>
                                                             <td tabindex="1">{{ $prescription->dose }}</td>
                                                             <td tabindex="1">{{ $prescription->frequency }}</td>
                                                             <td tabindex="1">{{ $prescription->duration }}</td>
@@ -159,9 +159,14 @@
 
             function fillValuesDefaultMedicine()
             {
-                $('#dose').val('1 ml')
-                $('#frequency').val('Cada 2hrs')
-                $('#duration').val('2 meses')
+                let medicineId = $('#medicine_id').val();
+
+                $.ajax({url: "/api/medicines/"+medicineId, success: function(result) {
+                    console.log();
+                    $('#dose').val(result.dose)
+                    $('#frequency').val(result.frequency)
+                    $('#duration').val(result.duration)
+                }});
             }
 
         </script>
