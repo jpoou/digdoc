@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('medicines', \App\Http\Controllers\Api\MedicineController::class)->only('index', 'show');
+Route::resource('diseases', \App\Http\Controllers\Api\DiseaseController::class)->only('index');
