@@ -37,7 +37,8 @@ class Appointment extends Model implements Auditable
      * @var array
      */
     protected $casts = [
-        'status' => AppointmentStatus::class
+        'status' => AppointmentStatus::class,
+        'appointment_at' => 'date'
     ];
 
     public function patient(): BelongsTo

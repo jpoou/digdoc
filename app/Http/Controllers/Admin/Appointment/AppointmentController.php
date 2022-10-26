@@ -13,8 +13,17 @@ class AppointmentController extends Controller
 {
     public function index()
     {
+        $appointments = Appointment::query()
+            ->when(request()->has('status') && request('status'), function ($query){
+                $query->where('status', request('status'));
+            })
+            ->when(request()->has('staff_id') && request('staff_id'), function ($query){
+                $query->where('doctor_id', request('staff_id'));
+            })->withCount('signs')->orderByDesc('created_at')->get();
+
         return view('modules.appointments.index',[
-            'appointments' => Appointment::withCount('signs')->get()
+            'appointments' => $appointments,
+            'doctors' => Staff::all()
         ]);
     }
 

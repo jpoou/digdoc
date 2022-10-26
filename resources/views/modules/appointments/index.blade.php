@@ -17,6 +17,28 @@
                                  class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
                                 <div class="row">
                                     <div class="col-sm-12">
+                                        <div class="row my-3">
+                                            <form action="{{ route('appointments.index') }}" style="width: 100%" id="form-filter">
+                                                <div class="col-lg-3 col-md-3">
+                                                    <label for="status">Filtrar por Estado:</label>
+                                                    <select type="text" name="status" id="status" class="form-control">
+                                                        <option value="">Seleccione un estado</option>
+                                                        @foreach(\App\Enums\AppointmentStatus::cases() as $status)
+                                                            <option value="{{ $status->value }}" @selected(old('status', request('status')) == $status->value)>{{ $status->text() }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3">
+                                                    <label for="staff_id">Filtrar por Doctor:</label>
+                                                    <select type="text" name="staff_id" id="staff_id" class="form-control js-basic-single">
+                                                        <option value="">Seleccione un doctor</option>
+                                                        @foreach($doctors as $doctor)
+                                                            <option value="{{ $doctor->id }}" @selected(old('staff_id', request('staff_id')) == $doctor->id)>{{ $doctor->surname }}, {{ $doctor->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
                                         <div class="dataTables_scroll">
                                             <div class="dataTables_scrollBody"
                                                  style="position: relative; overflow: auto; width: 100%;">
@@ -80,9 +102,9 @@
                                                         <tr role="row" class="odd">
                                                             <td class="sorting_1">{{ $appointment->patient->name }} {{ $appointment->patient->surname }}</td>
                                                             <td>{{ $appointment->branch->name }}</td>
-                                                            <td>{{ $appointment->staff?->title }} {{ $appointment->staff?->name }}</td>
+                                                            <td>{{ $appointment->staff?->title }}. {{ $appointment->staff?->name }}</td>
                                                             <td><span class="badge badge-pill badge-{{ $appointment->status->color() }}">{{ $appointment->status->text() }}</span></td>
-                                                            <td>{{ $appointment->appointment_at }}</td>
+                                                            <td>{{ $appointment->appointment_at->diffForHumans() }}</td>
                                                             <td>
                                                                 <span class="badge badge-pill badge-primary">{{ $appointment->signs_count }}</span>
                                                             </td>
@@ -134,4 +156,17 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $('.js-basic-single').select2();
+
+            $('#status').change(function (){
+                $('#form-filter').submit();
+            })
+
+            $('#staff_id').change(function (){
+                $('#form-filter').submit();
+            })
+        </script>
+    @endpush
 </x-layouts.app>
