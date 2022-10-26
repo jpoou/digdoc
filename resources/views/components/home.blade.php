@@ -122,7 +122,7 @@
                                             <td>
                                                 <span class="label label-sm label-success">Influenza</span>
                                             </td>
-                                            <td>{{ $patient->birth_at->diffForHumans() }}</td>
+                                            <td>{{ $patient->birth_at->age }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -163,5 +163,64 @@
             </div>
         </div>
         <!-- end new patient list -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-box">
+                    <div class="card-head">
+                        <header>ENFERMEDADES PIE CHART</header>
+                    </div>
+                    <div class="card-body " id="chartjs_pie_parent">
+                        <div class="row"><iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px none; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" tabindex="-1"></iframe>
+                            <canvas id="chartjs_pie" style="display: block; height: 554px; width: 1385px;" width="2770" height="1108"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    @push('scripts')
+        <!--Chart JS-->
+        <script src="{{ asset('/assets/plugins/chart-js/Chart.bundle.js') }}" ></script>
+        <script src="{{ asset('/assets/plugins/chart-js/utils.js') }}" ></script>
+        <script>
+            'use strict';
+
+            $(document).ready(function () {
+
+                const randomScalingFactor = function () {
+                    return Math.round(Math.random() * 100);
+                };
+
+                const config = {
+                    type: 'pie',
+                    data: {
+                        datasets: [{
+                            data: [
+                                randomScalingFactor(),
+                                randomScalingFactor(),
+                                randomScalingFactor(),
+                                randomScalingFactor(),
+                                randomScalingFactor(),
+                            ],
+                            backgroundColor: [
+                                window.chartColors.red,
+                                window.chartColors.orange,
+                                window.chartColors.yellow,
+                                window.chartColors.green,
+                                window.chartColors.blue,
+                            ],
+                            label: 'Dataset 1'
+                        }],
+                        labels: []
+                    },
+                    options: {
+                        responsive: true
+                    }
+                };
+
+                const ctx = document.getElementById("chartjs_pie").getContext("2d");
+                window.myPie = new Chart(ctx, config);
+            });
+        </script>
+    @endpush
 </x-layouts.app>
