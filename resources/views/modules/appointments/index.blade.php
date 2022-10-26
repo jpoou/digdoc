@@ -81,6 +81,11 @@
                                                             Cant. de Signos
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 407.984px;"
+                                                            aria-label="Position: activate to sort column ascending">
+                                                            Ultima actualización
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 156.734px;"
                                                             aria-label="Salary: activate to sort column ascending">
                                                             Acciones
@@ -108,6 +113,7 @@
                                                             <td>
                                                                 <span class="badge badge-pill badge-primary">{{ $appointment->signs_count }}</span>
                                                             </td>
+                                                            <td>{{ $appointment->updated_at->diffForHumans() }}</td>
                                                             <td class="center">
                                                                 <a href="{{ route('appointments.edit', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">

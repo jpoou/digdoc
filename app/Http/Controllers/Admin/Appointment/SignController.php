@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin\Appointment;
 
 use App\Models\Sign;
 use App\Models\Appointment;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Enums\AppointmentStatus;
+use App\Http\Controllers\Controller;
 
 class SignController extends Controller
 {
@@ -24,6 +25,10 @@ class SignController extends Controller
         ]);
 
         collect($request->sing)->each(fn($item, $key) => $appointment->signs()->attach( $key, [ 'value' => $item] ));
+
+        $appointment->update([
+            'status' => AppointmentStatus::PROGRESS
+        ]);
 
         return redirect()->route('appointments.index')
             ->with('message', 'Signos creados correctamente');
