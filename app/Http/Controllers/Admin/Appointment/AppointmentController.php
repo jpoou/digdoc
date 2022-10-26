@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Appointment;
 
+use App\Enums\AppointmentStatus;
 use App\Models\Appointment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentRequest as Request;
@@ -15,11 +16,6 @@ class AppointmentController extends Controller
         return view('modules.appointments.index',[
             'appointments' => Appointment::withCount('signs')->get()
         ]);
-    }
-
-    public function show(Appointment $appointment)
-    {
-        //
     }
 
     public function edit(Appointment $appointment)
@@ -41,7 +37,10 @@ class AppointmentController extends Controller
 
     public function destroy(Appointment $appointment)
     {
-        $appointment->delete();
+        $appointment->update([
+            'status' => AppointmentStatus::COMPLETE
+        ]);
+
         return redirect()->route('appointments.index')->with('message', 'Eliminado exitosamente');
     }
 }
