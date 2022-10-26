@@ -29,8 +29,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link nav-toggle">
-                        <i class="material-icons">hotel</i>
-                        <span class="title">Hospitales</span>
+                        <i class="material-icons">home</i>
+                        <span class="title">Sucursales</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
