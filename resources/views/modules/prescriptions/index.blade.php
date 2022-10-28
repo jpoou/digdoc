@@ -65,10 +65,6 @@
                                                     <button type="submit" class="btn btn-info">Agregar</button>
                                                     <div class="col">
                                                         <div class="float-right">
-                                                            <!-- Button trigger modal -->
-                                                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#laboratoryModal">
-                                                                <i class="fa fa-plus"></i> Laboratorios
-                                                            </a>
                                                             <a type="button" class="btn btn-success" data-toggle="modal" data-target="#diagnosisModal">
                                                                 <i class="fa fa-plus"></i> Diagnostico
                                                             </a>
@@ -131,7 +127,6 @@
         </div>
     </div>
 
-    @include('modules.appointments.modals.laboratory')
     @include('modules.appointments.modals.diagnosis')
 
     @push('scripts')
