@@ -133,6 +133,10 @@
                                                                    class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-signal"></i>
                                                                 </a>
+                                                                <a href="{{ route('appointment.laboratories.index', $appointment) }}"
+                                                                   class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-signal"></i>
+                                                                </a>
                                                                 <a href="{{ route('appointment.prescription.index', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-folder"></i>

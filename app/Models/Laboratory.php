@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Laboratory extends Model implements Auditable
 {
@@ -17,8 +18,24 @@ class Laboratory extends Model implements Auditable
      */
     protected $fillable = [
         'appointment_id',
+        'attachment_id',
         'user_id',
         'file',
         'observation'
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function appointment(): BelongsTo
+    {
+        return $this->belongsTo(Appointment::class);
+    }
+
+    public function attachment(): BelongsTo
+    {
+        return $this->belongsTo(Attachment::class);
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Attachment;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,8 +14,9 @@ return new class extends Migration {
             $table->id();
             $table->foreignIdFor(Appointment::class);
             $table->foreignIdFor(User::class);
-            $table->text('file');
-            $table->text('observation');
+            $table->foreignIdFor(Attachment::class);
+            $table->text('file')->nullable();
+            $table->text('observation')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

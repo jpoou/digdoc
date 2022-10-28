@@ -18,7 +18,7 @@ Route::resource('appointments', \App\Http\Controllers\Admin\Appointment\Appointm
 Route::resource('appointment.signs', \App\Http\Controllers\Admin\Appointment\SignController::class)->only('create', 'store');
 Route::resource('appointment.attachment', \App\Http\Controllers\Admin\Appointment\AttachmentController::class)->only('create', 'store');
 Route::resource('appointment.prescription', \App\Http\Controllers\Admin\Appointment\PrescriptionController::class)->only('index', 'store');
-Route::resource('appointment.laboratory', \App\Http\Controllers\Admin\Appointment\LaboratoryController::class)->only('store');
+Route::resource('appointment.laboratories', \App\Http\Controllers\Admin\Appointment\LaboratoryController::class)->only('index', 'store', 'destroy');
 Route::resource('appointment.diagnostic', \App\Http\Controllers\Admin\Appointment\DiagnosticController::class)->only('store');
 
 Route::get('appointment/patient/find', [\App\Http\Controllers\Admin\Appointment\FindPatientController::class, 'search'])->name('appointment.patient.find');

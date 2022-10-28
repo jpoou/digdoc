@@ -9,8 +9,9 @@ class LaboratoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => 'required|file',
-            'observation' => 'required'
+            'attachment_id' => 'required',
+            'file' => 'nullable|file',
+            'observation' => 'nullable'
         ];
     }
 
