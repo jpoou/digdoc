@@ -97,12 +97,16 @@
                                                                 @endif
                                                             </td>
                                                             <td class="center">
+                                                                <button type="button"  class="btn btn-tbl-edit btn-xs" data-toggle="modal" data-target="#laboratoryModal{{ $laboratory->id }}" data-whatever="{{ $laboratory->id }}">
+                                                                    <i class="fa fa-cloud-upload"></i>
+                                                                </button>
                                                                 <form action="{{ route('appointment.laboratories.destroy', [$appointment, $laboratory]) }}" method="POST" style="display: inline">
                                                                     @csrf @method('DELETE')
                                                                     <button class="btn btn-tbl-delete btn-xs" onclick="return confirm('¿Esta seguro de que desea eliminarlo?')">
-                                                                        <i class="fa fa-trash-o "></i>
+                                                                        <i class="fa fa-trash-o"></i>
                                                                     </button>
                                                                 </form>
+                                                                @include('modules.appointments.modals.laboratory', [ 'laboratory' => $laboratory ])
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -120,8 +124,6 @@
             </div>
         </div>
     </div>
-
-    @include('modules.appointments.modals.laboratory')
 
     @push('scripts')
         <script>

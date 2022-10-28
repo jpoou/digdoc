@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="laboratoryModal" tabindex="-1" role="dialog" aria-labelledby="laboratoryLabel" aria-hidden="true">
+<div class="modal fade" id="laboratoryModal{{ $laboratory->id }}" tabindex="-1" role="dialog" aria-labelledby="laboratoryLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,8 +8,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('appointment.laboratories.store', $appointment) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('appointment.laboratories.update', [$appointment, $laboratory]) }}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="file">Adjunto</label>

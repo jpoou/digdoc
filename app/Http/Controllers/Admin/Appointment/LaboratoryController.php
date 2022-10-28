@@ -8,6 +8,7 @@ use App\Models\Appointment;
 use App\Enums\AttachmentType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LaboratoryRequest;
+use Illuminate\Http\Request;
 
 class LaboratoryController extends Controller
 {
@@ -29,11 +30,28 @@ class LaboratoryController extends Controller
 
         $appointment->laboratories()->create([
             'user_id' => auth()->id(),
-            'file' => $request->has('file') ?? $request->file('file')->store('public'),
+            'file' => $request->has('file') ? $request->file('file')->store('public') : null,
             ...$request->all()
         ]);
 
         return redirect()->route('appointment.laboratories.index', $appointment)->with('message', 'Creado exitosamente');
+    }
+
+    public function update(Appointment $appointment, Laboratory $laboratory, Request $request)
+    {
+        $request->validate([
+            'file' => 'required|file'
+        ]);
+
+        if ($request->has('observation') && $request->input('observation')) {
+            $laboratory->observation = $laboratory->observation . " | {$request->input('observation')}";
+        }
+
+        $laboratory->update([
+            'file' => $request->file('file')->store('public')
+        ]);
+
+        return redirect()->route('appointment.laboratories.index', $appointment)->with('message', 'Actualizado exitosamente');
     }
 
     public function destroy(Appointment $appointment, Laboratory $laboratory)
