@@ -30,7 +30,6 @@ class LaboratoryController extends Controller
 
         $appointment->laboratories()->create([
             'user_id' => auth()->id(),
-            'file' => $request->has('file') ? $request->file('file')->store('public') : null,
             ...$request->all()
         ]);
 
@@ -48,7 +47,7 @@ class LaboratoryController extends Controller
         }
 
         $laboratory->update([
-            'file' => $request->file('file')->store('public')
+            'file' => $request->file('file')->store('', 'public')
         ]);
 
         return redirect()->route('appointment.laboratories.index', $appointment)->with('message', 'Actualizado exitosamente');

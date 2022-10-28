@@ -51,14 +51,6 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <button type="submit" class="btn btn-info">Agregar</button>
-                                                    <div class="col">
-                                                        <div class="float-right">
-                                                            <!-- Button trigger modal -->
-                                                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#laboratoryModal">
-                                                                <i class="fa fa-plus"></i> Laboratorios
-                                                            </a>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -79,6 +71,7 @@
                                                         <th>Laboratorio</th>
                                                         <th>Doctor</th>
                                                         <th>Observaciones</th>
+                                                        <th>Adjuntos</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </thead>
@@ -91,7 +84,7 @@
                                                             <td tabindex="1">{{ $laboratory->observation }}</td>
                                                             <td tabindex="1">
                                                                 @if($laboratory->file)
-                                                                    <a href="{{ asset($laboratory->file) }}" target="_blank"><i class="fa fa-cloud-download"></i> Adjunto</a>
+                                                                    <a href="{{ asset("storage/{$laboratory->file}") }}" target="_blank"><i class="fa fa-cloud-download"></i> Adjunto</a>
                                                                 @else
                                                                     Sin adjuntar
                                                                 @endif
