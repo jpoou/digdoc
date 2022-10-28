@@ -131,15 +131,15 @@
                                                             <td class="center">
                                                                 <a href="{{ route('appointment.signs.create', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-signal"></i>
+                                                                    <i class="fa fa-heartbeat"></i>
                                                                 </a>
                                                                 <a href="{{ route('appointment.laboratories.index', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-signal"></i>
+                                                                    <i class="fa fa-stethoscope"></i>
                                                                 </a>
                                                                 <a href="{{ route('appointment.prescription.index', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-folder"></i>
+                                                                    <i class="fa fa-medkit"></i>
                                                                 </a>
                                                             </td>
                                                             <th>
