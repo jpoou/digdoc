@@ -26,4 +26,5 @@ Route::get('patients/graphics/index', [\App\Http\Controllers\Admin\PatientGraphC
 
 Route::prefix('report')->name('report.')->group(function (){
     Route::any('appointment/{appointment}/general', \App\Http\Controllers\Admin\Reports\GeneralController::class)->name('appointment.general');
+    Route::any('appointment/{appointment}/prescription', \App\Http\Controllers\Admin\Reports\PrescriptionController::class)->name('appointment.prescription');
 });

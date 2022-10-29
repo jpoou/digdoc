@@ -146,7 +146,7 @@
                                                                 <a href="{{ route('report.appointment.general', $appointment) }}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-file"></i>
                                                                 </a>
-                                                                <a href="{{ route('appointment.attachment.create', $appointment) }}"
+                                                                <a href="{{ route('report.appointment.prescription', $appointment) }}"
                                                                    class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-magnet"></i>
                                                                 </a>

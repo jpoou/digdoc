@@ -55,15 +55,15 @@
         </tr>
         <tr>
             <td>Ultima enfermedad:</td>
-            <td>{{ $appointment->diagnostics->last()->disease->name }}</td>
+            <td>{{ $appointment->diagnostics->last()?->disease->name }}</td>
         </tr>
         <tr>
             <td>Ultima receta:</td>
-            <td>{{ $appointment->prescriptions->last()->created_at->diffForHumans() }}</td>
+            <td>{{ $appointment->prescriptions->last()?->created_at->diffForHumans() }}</td>
         </tr>
         <tr>
             <td>Ultima estudios:</td>
-            <td>{{ $appointment->laboratories->last()->created_at->diffForHumans() }}</td>
+            <td>{{ $appointment->laboratories->last()?->created_at->diffForHumans() }}</td>
         </tr>
     </table>
     <hr>
