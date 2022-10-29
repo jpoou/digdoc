@@ -15,10 +15,10 @@ class HomeController extends Controller
     public function index()
     {
         $diseases = DB::select('select d.name disease, COUNT(*) count_disease from diseases d
-                                        inner join `diagnostics` d2 on d2.disease_id = d.id
-                                        inner join appointments a on a.id = d2.appointment_id
-                                        inner join patients p on p.id = a.patient_id
-                                        group by d.name limit 6');
+            inner join `diagnostics` d2 on d2.disease_id = d.id
+            inner join appointments a on a.id = d2.appointment_id
+            inner join patients p on p.id = a.patient_id
+            group by d.name limit 6');
 
         return view('components.home', [
             'appointments_count' => Appointment::count(),

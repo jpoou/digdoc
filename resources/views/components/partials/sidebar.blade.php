@@ -27,6 +27,12 @@
                         <span class="title">Dashboard</span>
                     </a>
                 </li>
+                <li class="nav-item active open">
+                    <a href="{{ route('patients.graphics.index') }}" class="nav-link nav-toggle">
+                        <i class="material-icons">insert_chart</i>
+                        <span class="title">Gráficas</span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link nav-toggle">
                         <i class="material-icons">home</i>

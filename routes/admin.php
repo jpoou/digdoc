@@ -22,6 +22,7 @@ Route::resource('appointment.laboratories', \App\Http\Controllers\Admin\Appointm
 Route::resource('appointment.diagnostic', \App\Http\Controllers\Admin\Appointment\DiagnosticController::class)->only('store');
 
 Route::get('appointment/patient/find', [\App\Http\Controllers\Admin\Appointment\FindPatientController::class, 'search'])->name('appointment.patient.find');
+Route::get('patients/graphics/index', [\App\Http\Controllers\Admin\PatientGraphController::class, 'index'])->name('patients.graphics.index');
 
 Route::prefix('report')->name('report.')->group(function (){
     Route::any('appointment/{appointment}/general', \App\Http\Controllers\Admin\Reports\GeneralController::class)->name('appointment.general');
