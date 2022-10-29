@@ -25,7 +25,10 @@ class Patient extends Model implements Auditable
         'gender',
         'blood_type',
         'birth_at',
-        'identifier'
+        'identifier',
+        'contact_name',
+        'contact_phone',
+        'address'
     ];
 
     /**

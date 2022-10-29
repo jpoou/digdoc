@@ -78,6 +78,16 @@
                                                             Citas
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 407.984px;"
+                                                            aria-label="Position: activate to sort column ascending">
+                                                            Nombre de contacto
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
+                                                            rowspan="1" colspan="1" style="width: 407.984px;"
+                                                            aria-label="Position: activate to sort column ascending">
+                                                            Teléfono de contacto
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 156.734px;"
                                                             aria-label="Salary: activate to sort column ascending">
                                                             Acciones
@@ -94,6 +104,8 @@
                                                             <td>{{ $patient->blood_type }}</td>
                                                             <td>{{ $patient->birth_at->format('d/m/Y') }}</td>
                                                             <td>{{ $patient->appointments_count }}</td>
+                                                            <td>{{ $patient->contact_name }}</td>
+                                                            <td>{{ $patient->contact_phone }}</td>
                                                             <td class="center">
                                                                 <a href="{{ route('patients.edit', $patient) }}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>

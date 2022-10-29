@@ -17,6 +17,9 @@ return new class extends Migration {
             $table->string('identifier')->nullable();
             $table->string('blood_type', 15)->nullable();
             $table->date('birth_at')->nullable();
+            $table->string('contact_name')->nullable();
+            $table->string('contact_phone')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

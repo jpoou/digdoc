@@ -29,9 +29,6 @@
             <header>Acerca de</header>
         </div>
         <div class="card-body no-padding height-9">
-            <div class="profile-desc">
-                --
-            </div>
             <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                     <b>Genero </b>
@@ -49,21 +46,30 @@
                     <b>Tipo de sangre</b>
                     <div class="profile-desc-item pull-right">{{ $patient->blood_type }}</div>
                 </li>
+                <li class="list-group-item">
+                    <b>(Contacto) Nombre</b>
+                    <div class="profile-desc-item pull-right">{{ $patient->contact_name }}</div>
+                </li>
+                <li class="list-group-item">
+                    <b>(Contacto) Teléfono</b>
+                    <div class="profile-desc-item pull-right">{{ $patient->contact_phone }}</div>
+                </li>
             </ul>
         </div>
     </div>
-    <!-- <div class="card">
-        <div class="card-head card-topline-aqua">
-            <header>Dirección</header>
-        </div>
-        <div class="card-body no-padding height-9">
-            <div class="row text-center m-t-10">
-                <div class="col-md-12">
-                    <p>456, Pragri flat, varacha road, Surat
-                        <br> Gujarat, India.</p>
+    @if($patient->address)
+        <div class="card">
+            <div class="card-head card-topline-aqua">
+                <header>Dirección</header>
+            </div>
+            <div class="card-body no-padding height-9">
+                <div class="row text-center m-t-10">
+                    <div class="col-md-12">
+                        <p>{{ $patient->address }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>-->
+    @endif
 </div>
 <!-- END BEGIN PROFILE SIDEBAR -->
