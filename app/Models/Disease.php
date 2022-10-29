@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Disease extends Model implements Auditable
 {
@@ -25,4 +26,9 @@ class Disease extends Model implements Auditable
     protected $casts = [
         'permanent' => 'boolean'
     ];
+
+    public function diagnostic(): HasOne
+    {
+        return $this->hasOne(Diagnostic::class);
+    }
 }

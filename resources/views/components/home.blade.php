@@ -167,7 +167,7 @@
             <div class="col-md-12">
                 <div class="card card-box">
                     <div class="card-head">
-                        <header>ENFERMEDADES PIE CHART</header>
+                        <header>TOP 6 ENFERMEDADES</header>
                     </div>
                     <div class="card-body " id="chartjs_pie_parent">
                         <div class="row"><iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px none; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" tabindex="-1"></iframe>
@@ -184,34 +184,23 @@
         <script src="{{ asset('/assets/plugins/chart-js/utils.js') }}" ></script>
         <script>
             'use strict';
-
             $(document).ready(function () {
-
-                const randomScalingFactor = function () {
-                    return Math.round(Math.random() * 100);
-                };
-
                 const config = {
                     type: 'pie',
                     data: {
                         datasets: [{
-                            data: [
-                                randomScalingFactor(),
-                                randomScalingFactor(),
-                                randomScalingFactor(),
-                                randomScalingFactor(),
-                                randomScalingFactor(),
-                            ],
+                            data: {{ Js::from($diseases['data']) }},
                             backgroundColor: [
                                 window.chartColors.red,
                                 window.chartColors.orange,
                                 window.chartColors.yellow,
                                 window.chartColors.green,
                                 window.chartColors.blue,
+                                window.chartColors.grey,
                             ],
                             label: 'Dataset 1'
                         }],
-                        labels: []
+                        labels: {{ Js::from($diseases['labels']) }}
                     },
                     options: {
                         responsive: true
