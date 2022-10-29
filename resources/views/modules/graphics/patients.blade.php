@@ -25,7 +25,6 @@
                                 <label for="patient_id" class="col-sm-2 control-label">Paciente</label>
                                 <div class="col-sm-6">
                                     <select type="text" name="patient_id" id="patient_id" class="form-control js-basic-single">
-                                        <option value="">Seleccione un pacientes</option>
                                         @foreach($patients as $patient)
                                             <option value="{{ $patient->id }}" @selected(old('patient_id', request('patient_id')) == $patient->id)>{{ $patient->surname }}, {{ $patient->name }}</option>
                                         @endforeach
@@ -36,7 +35,6 @@
                                 <label for="sign_id" class="col-sm-2 control-label">Signo</label>
                                 <div class="col-sm-6">
                                     <select type="text" name="sign_id" id="sign_id" class="form-control js-basic-single">
-                                        <option value="">Seleccione un signo</option>
                                         @foreach($signs as $sign)
                                             <option value="{{ $sign->id }}" @selected(old('sign_id', request('sign_id')) == $sign->id)>{{ $sign->code }} - {{ $sign->name }}</option>
                                         @endforeach
@@ -99,7 +97,7 @@
                         responsive: true,
                         title: {
                             display: true,
-                            text: 'Signos'
+                            text: "Gráficas de {{ Js::from($signSelect->description) }}"
                         },
                         tooltips: {
                             mode: 'index',
@@ -114,14 +112,14 @@
                                 display: true,
                                 scaleLabel: {
                                     display: true,
-                                    labelString: 'Fecha'
+                                    labelString: 'Fechas'
                                 }
                             }],
                             yAxes: [{
                                 display: true,
                                 scaleLabel: {
                                     display: true,
-                                    labelString: 'Pacientes'
+                                    labelString: " {{ Js::from($signSelect->unit) }} "
                                 }
                             }]
                         }
