@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RuleSeeder extends Seeder
@@ -18,5 +20,6 @@ class RuleSeeder extends Seeder
         });
 
         Role::insert($roles->toArray());
+        User::first()->assignRole(Role::whereName('Admin')->first()->syncPermissions(Permission::all()));
     }
 }

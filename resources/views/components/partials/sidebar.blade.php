@@ -88,6 +88,25 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link nav-toggle">
+                        <i class="material-icons">verified_user</i>
+                        <span class="title">Usuarios</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item  ">
+                            <a href="{{ route('users.index') }}" class="nav-link ">
+                                <span class="title">Usuarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="{{ route('roles.index') }}" class="nav-link ">
+                                <span class="title">Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
                         <i class="material-icons">settings</i>
                         <span class="title">Otros</span>
                         <span class="arrow"></span>
@@ -96,11 +115,6 @@
                         <li class="nav-item  ">
                             <a href="{{ route('attachments.index') }}" class="nav-link ">
                                 <span class="title">Adjuntos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('roles.index') }}" class="nav-link ">
-                                <span class="title">Roles</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
