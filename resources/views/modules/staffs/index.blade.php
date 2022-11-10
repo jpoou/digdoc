@@ -51,6 +51,24 @@
                                                             aria-label="Name: activate to sort column descending">
                                                             Nombre
                                                         </th>
+                                                        <th class="sorting_asc" tabindex="0"
+                                                            aria-controls="saveStage" rowspan="1" colspan="1"
+                                                            style="width: 262.375px;" aria-sort="ascending"
+                                                            aria-label="Name: activate to sort column descending">
+                                                            Correo
+                                                        </th>
+                                                        <th class="sorting_asc" tabindex="0"
+                                                            aria-controls="saveStage" rowspan="1" colspan="1"
+                                                            style="width: 262.375px;" aria-sort="ascending"
+                                                            aria-label="Name: activate to sort column descending">
+                                                            Teléfono
+                                                        </th>
+                                                        <th class="sorting_asc" tabindex="0"
+                                                            aria-controls="saveStage" rowspan="1" colspan="1"
+                                                            style="width: 262.375px;" aria-sort="ascending"
+                                                            aria-label="Name: activate to sort column descending">
+                                                            Hospital
+                                                        </th>
                                                         <th class="sorting" tabindex="0" aria-controls="saveStage"
                                                             rowspan="1" colspan="1" style="width: 156.734px;"
                                                             aria-label="Salary: activate to sort column ascending">
@@ -63,6 +81,9 @@
                                                         <tr role="row" class="odd">
                                                             <td class="sorting_1">{{ $staff->title }}</td>
                                                             <td class="sorting_1">{{ $staff->name }}</td>
+                                                            <td class="sorting_1"><a href="mailto:{{ $staff->email }}"><i class="fa fa-send"></i> {{ $staff->email }}</a></td>
+                                                            <td class="sorting_1"><a href="tel:{{ $staff->phone }}"><i class="fa fa-phone"></i> {{ $staff->phone }}</a></td>
+                                                            <td class="sorting_1"><span class="label label-sm label-info">{{ $staff->branch?->name }}</span></td>
                                                             <td class="center">
                                                                 <a href="{{ route('staffs.edit', $staff) }}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>

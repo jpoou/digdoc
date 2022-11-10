@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use OwenIt\Auditing\Contracts\Auditable;
@@ -27,10 +28,17 @@ class Staff extends Model implements Auditable
         'title',
         'name',
         'surname',
-        'branch_id'
+        'branch_id',
+        'email',
+        'phone'
     ];
 
-    public function branch()
+    /**
+     *
+     * Assigned hospital
+     * @return BelongsTo<Branch>
+     */
+    public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);
     }

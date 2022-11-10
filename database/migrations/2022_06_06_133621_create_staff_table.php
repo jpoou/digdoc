@@ -14,6 +14,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('surname');
             $table->foreignIdFor(Branch::class)->nullable();
+            $table->string('email')->unique();
+            $table->string('phone')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

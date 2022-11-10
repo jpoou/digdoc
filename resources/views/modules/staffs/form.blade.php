@@ -34,9 +34,27 @@
         </div>
     </div>
     <div class="form-group row">
-        <label class="control-label col-md-3" for="branch_id">Hospital
+        <label class="control-label col-md-3" for="email">Correo electrónico
             <span class="required" aria-required="true"> * </span>
         </label>
+        <div class="col-md-5">
+            <input type="email" name="email" id="email" value="{{ old('email', $staff) }}" class="form-control input-height" required>
+            @error('email')
+            <span class="help-block text-danger"> {{ $message }} </span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-3" for="phone">Teléfono</label>
+        <div class="col-md-5">
+            <input type="tel" name="phone" id="phone" value="{{ old('phone', $staff) }}" class="form-control input-height" required>
+            @error('phone')
+            <span class="help-block text-danger"> {{ $message }} </span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-3" for="branch_id">Hospital</label>
         <div class="col-md-5">
             <select class="form-control input-height" name="branch_id" id="branch_id">
                 <option value="">Seleccione el lugar</option>

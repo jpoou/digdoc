@@ -12,7 +12,9 @@ class StaffRequest extends FormRequest
             'title' => 'required',
             'name' => 'required',
             'surname' => 'required',
-            'branch_id' => 'nullable|exists:branches,id'
+            'branch_id' => 'nullable|exists:branches,id',
+            'email' => 'required|unique:staffs,email',
+            'phone' => 'nullable|min:8'
         ];
     }
 
