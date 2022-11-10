@@ -16,7 +16,9 @@ class StaffFactory extends Factory
             'title' => $this->faker->title(),
             'name' => $this->faker->firstName(),
             'surname' => $this->faker->lastName(),
-            'branch_id' => Branch::factory()
+            'branch_id' => Branch::factory(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'phone' => $this->faker->phoneNumber()
         ];
     }
 }
