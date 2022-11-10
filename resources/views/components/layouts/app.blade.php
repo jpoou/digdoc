@@ -27,6 +27,8 @@
     <!--select2-->
     <link href="{{ asset('/assets/plugins/select2/css/select2.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/assets/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <!--toastrjs-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-color logo-dark">
 
@@ -81,6 +83,15 @@
     <!--select2-->
     <script src="{{ asset('/assets/plugins/select2/js/select2.js') }}" ></script>
     <script src="{{ asset('/assets/js/pages/select2/select2-init.js') }}" ></script>
+
+    <!--select2-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if(session('message'))
+            // Display a success toast, with a title
+            toastr.success("{{ session('message') }}", 'Mensaje')
+        @endif
+    </script>
 
     @stack('scripts')
 </body>
