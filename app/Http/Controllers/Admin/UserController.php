@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Mail\UserCredentialMail;
 use App\Models\Staff;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
@@ -37,6 +39,8 @@ class UserController extends Controller
 
         $user = User::create($data);
 
+        Mail::to($user)->send(new UserCredentialMail($user, $password));
+
         if ($request->has('role_id') && $request->input('role_id')) {
             $user->assignRole($request->input('role_id'));
         }
@@ -60,7 +64,13 @@ class UserController extends Controller
 
     public function update(UserUpdateRequest $request, User $user)
     {
+        $user->removeRole($user->roles->first()->name);
         $user->update($request->validated());
+
+        if ($request->has('role_id') && $request->input('role_id')) {
+            $user->assignRole($request->input('role_id'));
+        }
+
         return redirect()->route('users.index')->with('message', 'Actualizado exitosamente');
     }
 
