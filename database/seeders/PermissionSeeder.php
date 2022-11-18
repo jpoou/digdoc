@@ -19,6 +19,10 @@ class PermissionSeeder extends Seeder
             'user a index', 'user a editor', 'user a delete', 'user a create',
             'appointment attachment a index', 'appointment attachment a editor', 'appointment attachment a delete', 'appointment attachment a create',
             'appointment sing a index', 'appointment sing a editor', 'appointment sing a delete', 'appointment sing a create',
+            'department a index', 'department a editor', 'department a delete', 'department a create',
+            'role a index', 'role a editor', 'role a delete', 'role a create',
+            'disease a index', 'disease a editor', 'disease a delete', 'disease a create',
+            'medicine a index', 'medicine a editor', 'medicine a delete', 'medicine a create',
         ];
 
         $permissions = collect($arrayOfPermissionNames)->map(function ($permission) {

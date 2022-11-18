@@ -40,26 +40,34 @@
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
-                        <li class="nav-item  ">
-                            <a href="{{ route('branches.index') }}" class="nav-link ">
-                                <span class="title">Hospitales</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('staffs.index') }}" class="nav-link ">
-                                <span class="title">Personal</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('departments.index') }}" class="nav-link ">
-                                <span class="title">Departamentos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('branches.create') }}" class="nav-link ">
-                                <span class="title">Crear hospital</span>
-                            </a>
-                        </li>
+                        @can('branch a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('branches.index') }}" class="nav-link ">
+                                    <span class="title">Hospitales</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('staff a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('staffs.index') }}" class="nav-link ">
+                                    <span class="title">Personal</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('department a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('departments.index') }}" class="nav-link ">
+                                    <span class="title">Departamentos</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('branch a create')
+                            <li class="nav-item  ">
+                                <a href="{{ route('branches.create') }}" class="nav-link ">
+                                    <span class="title">Crear hospital</span>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -69,21 +77,27 @@
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
-                        <li class="nav-item  ">
-                            <a href="{{ route('patients.index') }}" class="nav-link ">
-                                <span class="title">Pacientes</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('appointments.index') }}" class="nav-link ">
-                                <span class="title">Citas</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('appointment.patient.find') }}" class="nav-link ">
-                                <span class="title">Crear cita</span>
-                            </a>
-                        </li>
+                        @can('patient a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('patients.index') }}" class="nav-link ">
+                                    <span class="title">Pacientes</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('attachment a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('appointments.index') }}" class="nav-link ">
+                                    <span class="title">Citas</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('attachment a create')
+                            <li class="nav-item  ">
+                                <a href="{{ route('appointment.patient.find') }}" class="nav-link ">
+                                    <span class="title">Crear cita</span>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -93,16 +107,20 @@
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
-                        <li class="nav-item  ">
-                            <a href="{{ route('users.index') }}" class="nav-link ">
-                                <span class="title">Usuarios</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('roles.index') }}" class="nav-link ">
-                                <span class="title">Roles</span>
-                            </a>
-                        </li>
+                        @can('user a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('users.index') }}" class="nav-link ">
+                                    <span class="title">Usuarios</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('role a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('roles.index') }}" class="nav-link ">
+                                    <span class="title">Roles</span>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -112,21 +130,27 @@
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
-                        <li class="nav-item  ">
-                            <a href="{{ route('attachments.index') }}" class="nav-link ">
-                                <span class="title">Adjuntos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('diseases.index') }}" class="nav-link ">
-                                <span class="title">Enfermedades</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{ route('medicines.index') }}" class="nav-link ">
-                                <span class="title">Medicamentos</span>
-                            </a>
-                        </li>
+                        @can('attachment a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('attachments.index') }}" class="nav-link ">
+                                    <span class="title">Adjuntos</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('disease a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('diseases.index') }}" class="nav-link ">
+                                    <span class="title">Enfermedades</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('medicine a index')
+                            <li class="nav-item  ">
+                                <a href="{{ route('medicines.index') }}" class="nav-link ">
+                                    <span class="title">Medicamentos</span>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
             </ul>
