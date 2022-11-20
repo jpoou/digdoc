@@ -151,6 +151,11 @@
                                 </a>
                             </li>
                         @endcan
+                        <li class="nav-item  ">
+                            <a href="{{ route('audits.index') }}" class="nav-link ">
+                                <span class="title">Auditorías</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>

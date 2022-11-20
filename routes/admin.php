@@ -12,6 +12,7 @@ Route::resource('departments', \App\Http\Controllers\Admin\DepartmentController:
 Route::resource('medicines', \App\Http\Controllers\Admin\MedicineController::class);
 Route::resource('prescription', \App\Http\Controllers\Admin\PrescriptionController::class);
 Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+Route::resource('audits', \App\Http\Controllers\Admin\AuditController::class);
 
 Route::resource('patient.appointment', \App\Http\Controllers\Admin\PatientAppointmentController::class)->only('create', 'store');
 
