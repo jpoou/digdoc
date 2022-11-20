@@ -64,7 +64,8 @@ class UserController extends Controller
 
     public function update(UserUpdateRequest $request, User $user)
     {
-        $user->removeRole($user->roles->first()->name);
+        if ($user->roles->first()) $user->removeRole($user->roles->first()->name);
+
         $user->update($request->validated());
 
         if ($request->has('role_id') && $request->input('role_id')) {
